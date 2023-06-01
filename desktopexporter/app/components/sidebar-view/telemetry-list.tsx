@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { FixedSizeList } from "react-window";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import {
@@ -18,8 +18,6 @@ import { KeyboardHelp } from "../modals/keyboard-help";
 
 const sidebarSummaryHeight = 120;
 const dividerHeight = 1;
-
-//To Do: presto chango summaries into trace summaries ??
 
 type SidebarRowData = {
   selectedID: string;

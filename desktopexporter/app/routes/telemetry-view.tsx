@@ -1,24 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import { Grid, GridItem, keyframes } from "@chakra-ui/react";
 
-import { LogData, TelemetryData } from "../types/api-types";
+import {
+  LogData,
+  SpanData,
+  TelemetryData,
+  TraceData,
+} from "../types/api-types";
 import { LogDetailView } from "../components/detail-view/log-detail-view";
 import { Header } from "../components/header-view/header";
+import { TraceDetailView } from "../components/detail-view/trace-detail-view";
 
 export async function telemetryLoader({ params }: any) {
   let response = await fetch(`/api/telemetry/${params.id}`);
   let telemetryData = await response.json();
+  console.log("telemetry view what");
+
   return telemetryData;
 }
 
 export default function TelemetryView() {
   let telemetryData = useLoaderData() as TelemetryData;
+  let [telemetryType, setTelemetryType] = useState(telemetryData.type);
+
   let logData = telemetryData.log as LogData;
+  let traceData = telemetryData.trace as TraceData;
+  let span = traceData.spans[0] as SpanData;
 
-  console.log("log data:", logData);
-
-  //To Do: make this do stuff
+  useEffect(() => {
+    setTelemetryType(() => telemetryData.type);
+  }, [telemetryData]);
 
   return (
     <Grid
@@ -31,15 +43,20 @@ export default function TelemetryView() {
       width={"100vw"}
     >
       <GridItem area={"header"}>
-        <Header traceID={telemetryData.ID} />
+        {/* <Header traceID={telemetryData.ID} /> */}
       </GridItem>
       <GridItem
         area={"main"}
         marginLeft="20px"
-      ></GridItem>
+      >
+        <div>{telemetryData.ID}</div>
+
+        <div>{`${telemetryData.type}`}</div>
+      </GridItem>
       <GridItem area={"detail"}>
-        {/* <DetailView span={selectedSpan} /> */}
-        <LogDetailView log={logData} />
+        {/* <div>{`${telemetryData.type}`}</div> */}
+        {telemetryType == "trace" && <TraceDetailView span={span} />}
+        {telemetryType == "log" && <div>{`${logData.body}`}</div>}
       </GridItem>
     </Grid>
   );

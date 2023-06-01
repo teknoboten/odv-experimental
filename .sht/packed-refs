@@ -1,7 +1,0 @@
-# pack-refs with: peeled fully-peeled sorted 
-a9e28e8e21adb04d5d6fc28e8fb4f6c8970ec7f5 refs/remotes/origin/main
-332cabad27c5f95c1e2fc42979fc05aebc27397f refs/remotes/origin/new-ui-behind-flag
-0dc70e2768724e5b4acef0ac30478b4950403bfc refs/tags/v0.1.0
-410c6715d72ee89703969cc1cef054b989e761bc refs/tags/v0.1.1
-^491761234a528365cdd867205e810b10352f81f1
-9c594f0581e658861cba6bb8a9d85c3f773c77f3 refs/tags/v0.1.2
