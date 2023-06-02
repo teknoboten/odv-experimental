@@ -6,7 +6,7 @@ import { TraceData } from "../types/api-types";
 import { SpanDataStatus, SpanWithUIData } from "../types/ui-types";
 
 import { Header } from "../components/header-view/header";
-import { DetailView } from "../components/detail-view/trace-detail-view";
+import { TraceDetailView } from "../components/detail-view/trace-detail-view";
 import { WaterfallView } from "../components/waterfall-view/waterfall-view";
 import { arrayToTree, TreeItem, RootTreeItem } from "../utils/array-to-tree";
 import { getNsFromString, calculateTraceTiming } from "../utils/duration";
@@ -77,7 +77,7 @@ export default function TraceView() {
         />
       </GridItem>
       <GridItem area={"detail"}>
-        <DetailView span={selectedSpan} />
+        <TraceDetailView span={selectedSpan} />
       </GridItem>
     </Grid>
   );

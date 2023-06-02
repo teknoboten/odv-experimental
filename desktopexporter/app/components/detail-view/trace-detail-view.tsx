@@ -10,11 +10,12 @@ type DetailViewProps = {
   span: SpanData | undefined;
 };
 
-export function DetailView(props: DetailViewProps) {
+export function TraceDetailView(props: DetailViewProps) {
   let { span } = props;
   if (!span) {
     return <div></div>;
   }
+
   let numEvents = span.events.length;
   let numLinks = span.links.length;
   return (
