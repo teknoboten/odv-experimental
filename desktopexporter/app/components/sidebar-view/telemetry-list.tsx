@@ -56,14 +56,10 @@ function SidebarRow({ index, style, data }: SidebarRowProps) {
         paddingX="20px"
       >
         <Text fontSize="xs">
-          <strong>Service Name</strong>
+          <strong>{summary.serviceName}</strong>
         </Text>
         <Text fontSize="xs">{`Type: ${summary.type}`}</Text>
 
-        <Text fontSize="xs">
-          {"Incomplete Trace: "}
-          <strong>{"missing a root span"}</strong>
-        </Text>
         <Text fontSize="xs">
           {"Number of Spans: "}
           <strong>{summary.spanCount}</strong>
@@ -71,10 +67,10 @@ function SidebarRow({ index, style, data }: SidebarRowProps) {
 
         <LinkOverlay
           as={NavLink}
-          to={`${isTrace ? "traces" : "telemetry"}/${summary.ID}`}
+          to={`traces/${summary.ID}`}
         >
           <Text fontSize="xs">
-            {"Telemetry ID: "}
+            {"Trace ID: "}
             <strong>{summary.ID}</strong>
           </Text>
         </LinkOverlay>
@@ -95,12 +91,12 @@ function SidebarRow({ index, style, data }: SidebarRowProps) {
         paddingX="20px"
       >
         <Text fontSize="xs">
-          <strong>Service Name</strong>
+          <strong>{summary.serviceName}</strong>
         </Text>
         <Text fontSize="xs">{`Type: ${summary.type}`}</Text>
         <LinkOverlay
           as={NavLink}
-          to={`${isTrace ? "traces" : "telemetry"}/${summary.ID}`}
+          to={`telemetry/${summary.ID}`}
         >
           <Text fontSize="xs">
             {"Telemetry ID: "}
@@ -125,8 +121,6 @@ export function TelemetryList(props: TelemetryListProps) {
   let location = useLocation();
   // let navigate = useNavigate();
   // let { isOpen, onOpen, onClose } = useDisclosure();
-
-  console.log("location telemetrylist", location);
 
   let { summaries } = props;
 

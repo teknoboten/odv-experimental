@@ -51103,18 +51103,16 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       paddingX: "20px"
     }, /* @__PURE__ */ import_react139.default.createElement(Text, {
       fontSize: "xs"
-    }, /* @__PURE__ */ import_react139.default.createElement("strong", null, "Service Name")), /* @__PURE__ */ import_react139.default.createElement(Text, {
+    }, /* @__PURE__ */ import_react139.default.createElement("strong", null, summary.serviceName)), /* @__PURE__ */ import_react139.default.createElement(Text, {
       fontSize: "xs"
     }, `Type: ${summary.type}`), /* @__PURE__ */ import_react139.default.createElement(Text, {
       fontSize: "xs"
-    }, "Incomplete Trace: ", /* @__PURE__ */ import_react139.default.createElement("strong", null, "missing a root span")), /* @__PURE__ */ import_react139.default.createElement(Text, {
-      fontSize: "xs"
     }, "Number of Spans: ", /* @__PURE__ */ import_react139.default.createElement("strong", null, summary.spanCount)), /* @__PURE__ */ import_react139.default.createElement(LinkOverlay, {
       as: NavLink,
-      to: `${isTrace ? "traces" : "telemetry"}/${summary.ID}`
+      to: `traces/${summary.ID}`
     }, /* @__PURE__ */ import_react139.default.createElement(Text, {
       fontSize: "xs"
-    }, "Telemetry ID: ", /* @__PURE__ */ import_react139.default.createElement("strong", null, summary.ID))))) : /* @__PURE__ */ import_react139.default.createElement("div", {
+    }, "Trace ID: ", /* @__PURE__ */ import_react139.default.createElement("strong", null, summary.ID))))) : /* @__PURE__ */ import_react139.default.createElement("div", {
       style
     }, /* @__PURE__ */ import_react139.default.createElement(Divider, {
       height: dividerHeight,
@@ -51128,11 +51126,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       paddingX: "20px"
     }, /* @__PURE__ */ import_react139.default.createElement(Text, {
       fontSize: "xs"
-    }, /* @__PURE__ */ import_react139.default.createElement("strong", null, "Service Name")), /* @__PURE__ */ import_react139.default.createElement(Text, {
+    }, /* @__PURE__ */ import_react139.default.createElement("strong", null, summary.serviceName)), /* @__PURE__ */ import_react139.default.createElement(Text, {
       fontSize: "xs"
     }, `Type: ${summary.type}`), /* @__PURE__ */ import_react139.default.createElement(LinkOverlay, {
       as: NavLink,
-      to: `${isTrace ? "traces" : "telemetry"}/${summary.ID}`
+      to: `telemetry/${summary.ID}`
     }, /* @__PURE__ */ import_react139.default.createElement(Text, {
       fontSize: "xs"
     }, "Telemetry ID: ", /* @__PURE__ */ import_react139.default.createElement("strong", null, summary.ID)))));
@@ -51142,7 +51140,6 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
     let summaryListRef = import_react139.default.createRef();
     let size3 = useSize(containerRef);
     let location = useLocation();
-    console.log("location telemetrylist", location);
     let { summaries } = props;
     let [selectedID, setSelectedID] = import_react139.default.useState(summaries[0].ID);
     let itemData = {
@@ -52047,7 +52044,7 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
       let durationString = getDurationString(duration);
       return {
         hasRootSpan: true,
-        rootServiceName: summary.rootServiceName,
+        serviceName: summary.rootServiceName,
         rootName: summary.rootName,
         rootDurationString: durationString,
         spanCount: summary.spanCount,
@@ -52055,11 +52052,20 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
         type: summary.type
       };
     }
+    if (summary.type == "trace" && !summary.hasRootSpan) {
+      return {
+        hasRootSpan: false,
+        spanCount: summary.spanCount,
+        ID: summary.ID,
+        type: summary.type,
+        serviceName: summary.serviceName
+      };
+    }
     return {
-      hasRootSpan: false,
-      spanCount: summary.spanCount,
+      spanCount: 0,
       ID: summary.ID,
-      type: summary.type
+      type: summary.type,
+      serviceName: summary.serviceName
     };
   }
 

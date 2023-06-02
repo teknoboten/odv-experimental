@@ -24,7 +24,7 @@ export type SpanWithUIData =
 export type SummaryWithUIData =
   | {
       hasRootSpan: true;
-      rootServiceName: string;
+      serviceName: string;
       rootName: string;
       rootDurationString: string;
       spanCount: number;
@@ -35,7 +35,14 @@ export type SummaryWithUIData =
       hasRootSpan: false;
       spanCount: number;
       ID: string;
+      type: "trace";
+      serviceName: string;
+    }
+  | {
+      ID: string;
       type: string;
+      serviceName: string;
+      spanCount: number;
     };
 
 export type TraceSummaryWithUIData =
