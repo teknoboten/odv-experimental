@@ -51087,8 +51087,34 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
     let { selectedID, summaries } = data;
     let summary = summaries[index];
     let isSelected = selectedID && selectedID === summary.ID ? true : false;
+    let isTrace = summary.type == "trace" ? true : false;
     let backgroundColour = isSelected ? selectedColor : "";
-    return /* @__PURE__ */ import_react139.default.createElement("div", {
+    return isTrace ? /* @__PURE__ */ import_react139.default.createElement("div", {
+      style
+    }, /* @__PURE__ */ import_react139.default.createElement(Divider, {
+      height: dividerHeight,
+      borderColor: dividerColour
+    }), /* @__PURE__ */ import_react139.default.createElement(LinkBox, {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      bgColor: backgroundColour,
+      height: `${sidebarSummaryHeight}px`,
+      paddingX: "20px"
+    }, /* @__PURE__ */ import_react139.default.createElement(Text, {
+      fontSize: "xs"
+    }, /* @__PURE__ */ import_react139.default.createElement("strong", null, "Service Name")), /* @__PURE__ */ import_react139.default.createElement(Text, {
+      fontSize: "xs"
+    }, `Type: ${summary.type}`), /* @__PURE__ */ import_react139.default.createElement(Text, {
+      fontSize: "xs"
+    }, "Incomplete Trace: ", /* @__PURE__ */ import_react139.default.createElement("strong", null, "missing a root span")), /* @__PURE__ */ import_react139.default.createElement(Text, {
+      fontSize: "xs"
+    }, "Number of Spans: ", /* @__PURE__ */ import_react139.default.createElement("strong", null, summary.spanCount)), /* @__PURE__ */ import_react139.default.createElement(LinkOverlay, {
+      as: NavLink,
+      to: `${isTrace ? "traces" : "telemetry"}/${summary.ID}`
+    }, /* @__PURE__ */ import_react139.default.createElement(Text, {
+      fontSize: "xs"
+    }, "Telemetry ID: ", /* @__PURE__ */ import_react139.default.createElement("strong", null, summary.ID))))) : /* @__PURE__ */ import_react139.default.createElement("div", {
       style
     }, /* @__PURE__ */ import_react139.default.createElement(Divider, {
       height: dividerHeight,
@@ -51106,7 +51132,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       fontSize: "xs"
     }, `Type: ${summary.type}`), /* @__PURE__ */ import_react139.default.createElement(LinkOverlay, {
       as: NavLink,
-      to: `telemetry/${summary.ID}`
+      to: `${isTrace ? "traces" : "telemetry"}/${summary.ID}`
     }, /* @__PURE__ */ import_react139.default.createElement(Text, {
       fontSize: "xs"
     }, "Telemetry ID: ", /* @__PURE__ */ import_react139.default.createElement("strong", null, summary.ID)))));
@@ -51116,6 +51142,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
     let summaryListRef = import_react139.default.createRef();
     let size3 = useSize(containerRef);
     let location = useLocation();
+    console.log("location telemetrylist", location);
     let { summaries } = props;
     let [selectedID, setSelectedID] = import_react139.default.useState(summaries[0].ID);
     let itemData = {
@@ -52929,15 +52956,12 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
   async function telemetryLoader({ params }) {
     let response = await fetch(`/api/telemetry/${params.id}`);
     let telemetryData = await response.json();
-    console.log("telemetry view what");
     return telemetryData;
   }
   function TelemetryView() {
     let telemetryData = useLoaderData();
     let [telemetryType, setTelemetryType] = (0, import_react179.useState)(telemetryData.type);
     let logData = telemetryData.log;
-    let traceData = telemetryData.trace;
-    let span = traceData.spans[0];
     (0, import_react179.useEffect)(() => {
       setTelemetryType(() => telemetryData.type);
     }, [telemetryData]);
@@ -52956,9 +52980,7 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
       marginLeft: "20px"
     }, /* @__PURE__ */ import_react179.default.createElement("div", null, telemetryData.ID), /* @__PURE__ */ import_react179.default.createElement("div", null, `${telemetryData.type}`)), /* @__PURE__ */ import_react179.default.createElement(GridItem, {
       area: "detail"
-    }, telemetryType == "trace" && /* @__PURE__ */ import_react179.default.createElement(TraceDetailView, {
-      span
-    }), telemetryType == "log" && /* @__PURE__ */ import_react179.default.createElement("div", null, `${logData.body}`)));
+    }, telemetryType == "log" && /* @__PURE__ */ import_react179.default.createElement("div", null, `${logData.body}`)));
   }
 
   // app/error-page.tsx

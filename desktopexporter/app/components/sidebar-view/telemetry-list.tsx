@@ -37,10 +37,11 @@ function SidebarRow({ index, style, data }: SidebarRowProps) {
   let summary = summaries[index];
 
   let isSelected = selectedID && selectedID === summary.ID ? true : false;
+  let isTrace = summary.type == "trace" ? true : false;
 
   let backgroundColour = isSelected ? selectedColor : "";
 
-  return (
+  return isTrace ? (
     <div style={style}>
       <Divider
         height={dividerHeight}
@@ -59,18 +60,47 @@ function SidebarRow({ index, style, data }: SidebarRowProps) {
         </Text>
         <Text fontSize="xs">{`Type: ${summary.type}`}</Text>
 
-        {/* <Text fontSize="xs">
+        <Text fontSize="xs">
           {"Incomplete Trace: "}
           <strong>{"missing a root span"}</strong>
         </Text>
         <Text fontSize="xs">
           {"Number of Spans: "}
           <strong>{summary.spanCount}</strong>
-        </Text> */}
+        </Text>
 
         <LinkOverlay
           as={NavLink}
-          to={`telemetry/${summary.ID}`}
+          to={`${isTrace ? "traces" : "telemetry"}/${summary.ID}`}
+        >
+          <Text fontSize="xs">
+            {"Telemetry ID: "}
+            <strong>{summary.ID}</strong>
+          </Text>
+        </LinkOverlay>
+      </LinkBox>
+    </div>
+  ) : (
+    <div style={style}>
+      <Divider
+        height={dividerHeight}
+        borderColor={dividerColour}
+      />
+      <LinkBox
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        bgColor={backgroundColour}
+        height={`${sidebarSummaryHeight}px`}
+        paddingX="20px"
+      >
+        <Text fontSize="xs">
+          <strong>Service Name</strong>
+        </Text>
+        <Text fontSize="xs">{`Type: ${summary.type}`}</Text>
+        <LinkOverlay
+          as={NavLink}
+          to={`${isTrace ? "traces" : "telemetry"}/${summary.ID}`}
         >
           <Text fontSize="xs">
             {"Telemetry ID: "}
@@ -95,6 +125,8 @@ export function TelemetryList(props: TelemetryListProps) {
   let location = useLocation();
   // let navigate = useNavigate();
   // let { isOpen, onOpen, onClose } = useDisclosure();
+
+  console.log("location telemetrylist", location);
 
   let { summaries } = props;
 

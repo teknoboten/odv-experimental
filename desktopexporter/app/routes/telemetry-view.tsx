@@ -15,8 +15,6 @@ import { TraceDetailView } from "../components/detail-view/trace-detail-view";
 export async function telemetryLoader({ params }: any) {
   let response = await fetch(`/api/telemetry/${params.id}`);
   let telemetryData = await response.json();
-  console.log("telemetry view what");
-
   return telemetryData;
 }
 
@@ -25,8 +23,6 @@ export default function TelemetryView() {
   let [telemetryType, setTelemetryType] = useState(telemetryData.type);
 
   let logData = telemetryData.log as LogData;
-  let traceData = telemetryData.trace as TraceData;
-  let span = traceData.spans[0] as SpanData;
 
   useEffect(() => {
     setTelemetryType(() => telemetryData.type);
@@ -42,9 +38,7 @@ export default function TelemetryView() {
       height={"100vh"}
       width={"100vw"}
     >
-      <GridItem area={"header"}>
-        {/* <Header traceID={telemetryData.ID} /> */}
-      </GridItem>
+      <GridItem area={"header"}></GridItem>
       <GridItem
         area={"main"}
         marginLeft="20px"
@@ -55,7 +49,6 @@ export default function TelemetryView() {
       </GridItem>
       <GridItem area={"detail"}>
         {/* <div>{`${telemetryData.type}`}</div> */}
-        {telemetryType == "trace" && <TraceDetailView span={span} />}
         {telemetryType == "log" && <div>{`${logData.body}`}</div>}
       </GridItem>
     </Grid>
