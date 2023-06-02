@@ -74,8 +74,6 @@ function initSidebarData(summaries: Summary[]): SidebarData {
   };
 }
 
-//to do: update this to account for logs / metrics
-
 function updateSidebarData(
   sidebarData: SidebarData,
   summaries: Summary[],
@@ -122,12 +120,11 @@ function updateSidebarData(
 function generateSummaryWithUIData(summary: Summary): SummaryWithUIData {
   if (summary.hasRootSpan) {
     let duration = getDurationNs(summary.rootStartTime, summary.rootEndTime);
-
     let durationString = getDurationString(duration);
 
     return {
       hasRootSpan: true,
-      rootServiceName: summary.rootServiceName,
+      serviceName: summary.rootServiceName,
       rootName: summary.rootName,
       rootDurationString: durationString,
       spanCount: summary.spanCount,
@@ -136,10 +133,19 @@ function generateSummaryWithUIData(summary: Summary): SummaryWithUIData {
     };
   }
 
+  if (summary.type == "trace" && !summary.hasRootSpan) {
+    return {
+      hasRootSpan: false,
+      spanCount: summary.spanCount,
+      ID: summary.ID,
+      type: summary.type,
+      serviceName: summary.serviceName,
+    };
+  }
   return {
-    hasRootSpan: false,
-    spanCount: summary.spanCount,
+    spanCount: 0,
     ID: summary.ID,
     type: summary.type,
+    serviceName: summary.serviceName,
   };
 }
