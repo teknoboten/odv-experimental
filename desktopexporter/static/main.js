@@ -227,7 +227,7 @@
           pureComponentPrototype.constructor = PureComponent2;
           assign(pureComponentPrototype, Component3.prototype);
           pureComponentPrototype.isPureReactComponent = true;
-          function createRef() {
+          function createRef2() {
             var refObject = {
               current: null
             };
@@ -1009,7 +1009,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useReducer(reducer, initialArg, init);
           }
-          function useRef29(initialValue) {
+          function useRef31(initialValue) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
@@ -1782,7 +1782,7 @@
           exports.createContext = createContext12;
           exports.createElement = createElement$1;
           exports.createFactory = createFactory;
-          exports.createRef = createRef;
+          exports.createRef = createRef2;
           exports.forwardRef = forwardRef7;
           exports.isValidElement = isValidElement7;
           exports.lazy = lazy;
@@ -1800,7 +1800,7 @@
           exports.useLayoutEffect = useLayoutEffect9;
           exports.useMemo = useMemo19;
           exports.useReducer = useReducer;
-          exports.useRef = useRef29;
+          exports.useRef = useRef31;
           exports.useState = useState25;
           exports.useSyncExternalStore = useSyncExternalStore3;
           exports.useTransition = useTransition;
@@ -2297,9 +2297,9 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React54 = require_react();
+          var React56 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React54.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React56.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -3820,7 +3820,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React54.Children.forEach(props.children, function(child) {
+                  React56.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -11981,7 +11981,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React54.Component().refs;
+          var emptyRefsObject = new React56.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -25638,7 +25638,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
     "node_modules/@emotion/use-insertion-effect-with-fallbacks/dist/emotion-use-insertion-effect-with-fallbacks.cjs.dev.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: true });
-      var React54 = require_react();
+      var React56 = require_react();
       function _interopNamespace(e) {
         if (e && e.__esModule)
           return e;
@@ -25659,14 +25659,14 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         n["default"] = e;
         return Object.freeze(n);
       }
-      var React__namespace = /* @__PURE__ */ _interopNamespace(React54);
+      var React__namespace = /* @__PURE__ */ _interopNamespace(React56);
       var isBrowser3 = typeof document !== "undefined";
       var syncFallback = function syncFallback2(create) {
         return create();
       };
       var useInsertionEffect2 = React__namespace["useInsertionEffect"] ? React__namespace["useInsertionEffect"] : false;
       var useInsertionEffectAlwaysWithSyncFallback = !isBrowser3 ? syncFallback : useInsertionEffect2 || syncFallback;
-      var useInsertionEffectWithLayoutFallback = useInsertionEffect2 || React54.useLayoutEffect;
+      var useInsertionEffectWithLayoutFallback = useInsertionEffect2 || React56.useLayoutEffect;
       exports.useInsertionEffectAlwaysWithSyncFallback = useInsertionEffectAlwaysWithSyncFallback;
       exports.useInsertionEffectWithLayoutFallback = useInsertionEffectWithLayoutFallback;
     }
@@ -25688,7 +25688,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
   var require_emotion_element_b63ca7c6_cjs_dev = __commonJS({
     "node_modules/@emotion/react/dist/emotion-element-b63ca7c6.cjs.dev.js"(exports) {
       "use strict";
-      var React54 = require_react();
+      var React56 = require_react();
       var createCache = require_emotion_cache_cjs();
       var _extends5 = require_extends();
       var weakMemoize = require_emotion_weak_memoize_cjs();
@@ -25703,7 +25703,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       var weakMemoize__default = /* @__PURE__ */ _interopDefault(weakMemoize);
       var isBrowser3 = typeof document !== "undefined";
       var hasOwnProperty = {}.hasOwnProperty;
-      var EmotionCacheContext = /* @__PURE__ */ React54.createContext(
+      var EmotionCacheContext = /* @__PURE__ */ React56.createContext(
         typeof HTMLElement !== "undefined" ? /* @__PURE__ */ createCache__default["default"]({
           key: "css"
         }) : null
@@ -25713,23 +25713,23 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       }
       var CacheProvider = EmotionCacheContext.Provider;
       var __unsafe_useEmotionCache = function useEmotionCache() {
-        return React54.useContext(EmotionCacheContext);
+        return React56.useContext(EmotionCacheContext);
       };
       exports.withEmotionCache = function withEmotionCache(func) {
-        return /* @__PURE__ */ React54.forwardRef(function(props, ref) {
-          var cache = React54.useContext(EmotionCacheContext);
+        return /* @__PURE__ */ React56.forwardRef(function(props, ref) {
+          var cache = React56.useContext(EmotionCacheContext);
           return func(props, cache, ref);
         });
       };
       if (!isBrowser3) {
         exports.withEmotionCache = function withEmotionCache(func) {
           return function(props) {
-            var cache = React54.useContext(EmotionCacheContext);
+            var cache = React56.useContext(EmotionCacheContext);
             if (cache === null) {
               cache = createCache__default["default"]({
                 key: "css"
               });
-              return /* @__PURE__ */ React54.createElement(EmotionCacheContext.Provider, {
+              return /* @__PURE__ */ React56.createElement(EmotionCacheContext.Provider, {
                 value: cache
               }, func(props, cache));
             } else {
@@ -25738,12 +25738,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
           };
         };
       }
-      var ThemeContext2 = /* @__PURE__ */ React54.createContext({});
+      var ThemeContext2 = /* @__PURE__ */ React56.createContext({});
       if (true) {
         ThemeContext2.displayName = "EmotionThemeContext";
       }
       var useTheme2 = function useTheme3() {
-        return React54.useContext(ThemeContext2);
+        return React56.useContext(ThemeContext2);
       };
       var getTheme2 = function getTheme3(outerTheme, theme3) {
         if (typeof theme3 === "function") {
@@ -25764,24 +25764,24 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         });
       });
       var ThemeProvider2 = function ThemeProvider3(props) {
-        var theme3 = React54.useContext(ThemeContext2);
+        var theme3 = React56.useContext(ThemeContext2);
         if (props.theme !== theme3) {
           theme3 = createCacheWithTheme(theme3)(props.theme);
         }
-        return /* @__PURE__ */ React54.createElement(ThemeContext2.Provider, {
+        return /* @__PURE__ */ React56.createElement(ThemeContext2.Provider, {
           value: theme3
         }, props.children);
       };
       function withTheme(Component3) {
         var componentName = Component3.displayName || Component3.name || "Component";
         var render = function render2(props, ref) {
-          var theme3 = React54.useContext(ThemeContext2);
-          return /* @__PURE__ */ React54.createElement(Component3, _extends5({
+          var theme3 = React56.useContext(ThemeContext2);
+          return /* @__PURE__ */ React56.createElement(Component3, _extends5({
             theme: theme3,
             ref
           }, props));
         };
-        var WithTheme = /* @__PURE__ */ React54.forwardRef(render);
+        var WithTheme = /* @__PURE__ */ React56.forwardRef(render);
         WithTheme.displayName = "WithTheme(" + componentName + ")";
         return _isolatedHnrs_dist_emotionReact_isolatedHnrs["default"](WithTheme, Component3);
       }
@@ -25851,7 +25851,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
             serializedNames += " " + next.name;
             next = next.next;
           }
-          return /* @__PURE__ */ React54.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedNames, _ref2.dangerouslySetInnerHTML = {
+          return /* @__PURE__ */ React56.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedNames, _ref2.dangerouslySetInnerHTML = {
             __html: rules
           }, _ref2.nonce = cache.sheet.nonce, _ref2));
         }
@@ -25870,7 +25870,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         } else if (props.className != null) {
           className = props.className + " ";
         }
-        var serialized = serialize.serializeStyles(registeredStyles, void 0, React54.useContext(ThemeContext2));
+        var serialized = serialize.serializeStyles(registeredStyles, void 0, React56.useContext(ThemeContext2));
         if (serialized.name.indexOf("-") === -1) {
           var labelFromStack = props[labelPropName];
           if (labelFromStack) {
@@ -25886,11 +25886,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         }
         newProps.ref = ref;
         newProps.className = className;
-        return /* @__PURE__ */ React54.createElement(React54.Fragment, null, /* @__PURE__ */ React54.createElement(Insertion, {
+        return /* @__PURE__ */ React56.createElement(React56.Fragment, null, /* @__PURE__ */ React56.createElement(Insertion, {
           cache,
           serialized,
           isStringTag: typeof WrappedComponent === "string"
-        }), /* @__PURE__ */ React54.createElement(WrappedComponent, newProps));
+        }), /* @__PURE__ */ React56.createElement(WrappedComponent, newProps));
       });
       if (true) {
         Emotion.displayName = "EmotionCssPropInternal";
@@ -25913,7 +25913,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
     "node_modules/@emotion/react/dist/emotion-react.cjs.dev.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: true });
-      var React54 = require_react();
+      var React56 = require_react();
       require_emotion_cache_cjs();
       var emotionElement = require_emotion_element_b63ca7c6_cjs_dev();
       require_extends();
@@ -26048,7 +26048,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       var jsx = function jsx2(type, props) {
         var args = arguments;
         if (props == null || !emotionElement.hasOwnProperty.call(props, "css")) {
-          return React54.createElement.apply(void 0, args);
+          return React56.createElement.apply(void 0, args);
         }
         var argsLength = args.length;
         var createElementArgArray = new Array(argsLength);
@@ -26057,7 +26057,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         for (var i = 2; i < argsLength; i++) {
           createElementArgArray[i] = args[i];
         }
-        return React54.createElement.apply(null, createElementArgArray);
+        return React56.createElement.apply(null, createElementArgArray);
       };
       var warnedAboutCssPropForGlobal = false;
       var Global3 = /* @__PURE__ */ emotionElement.withEmotionCache(function(props, cache) {
@@ -26066,7 +26066,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
           warnedAboutCssPropForGlobal = true;
         }
         var styles2 = props.styles;
-        var serialized = serialize.serializeStyles([styles2], void 0, React54.useContext(emotionElement.ThemeContext));
+        var serialized = serialize.serializeStyles([styles2], void 0, React56.useContext(emotionElement.ThemeContext));
         if (!emotionElement.isBrowser) {
           var _ref;
           var serializedNames = serialized.name;
@@ -26085,11 +26085,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
           if (shouldCache) {
             return null;
           }
-          return /* @__PURE__ */ React54.createElement("style", (_ref = {}, _ref["data-emotion"] = cache.key + "-global " + serializedNames, _ref.dangerouslySetInnerHTML = {
+          return /* @__PURE__ */ React56.createElement("style", (_ref = {}, _ref["data-emotion"] = cache.key + "-global " + serializedNames, _ref.dangerouslySetInnerHTML = {
             __html: rules
           }, _ref.nonce = cache.sheet.nonce, _ref));
         }
-        var sheetRef = React54.useRef();
+        var sheetRef = React56.useRef();
         useInsertionEffectWithFallbacks.useInsertionEffectWithLayoutFallback(function() {
           var key = cache.key + "-global";
           var sheet = new cache.sheet.constructor({
@@ -26217,7 +26217,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         });
         if (!emotionElement.isBrowser && rules.length !== 0) {
           var _ref2;
-          return /* @__PURE__ */ React54.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedArr.map(function(serialized) {
+          return /* @__PURE__ */ React56.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedArr.map(function(serialized) {
             return serialized.name;
           }).join(" "), _ref2.dangerouslySetInnerHTML = {
             __html: rules
@@ -26252,11 +26252,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         var content = {
           css: css3,
           cx: cx9,
-          theme: React54.useContext(emotionElement.ThemeContext)
+          theme: React56.useContext(emotionElement.ThemeContext)
         };
         var ele = props.children(content);
         hasRendered = true;
-        return /* @__PURE__ */ React54.createElement(React54.Fragment, null, /* @__PURE__ */ React54.createElement(Insertion, {
+        return /* @__PURE__ */ React56.createElement(React56.Fragment, null, /* @__PURE__ */ React56.createElement(Insertion, {
           cache,
           serializedArr
         }), ele);
@@ -26351,7 +26351,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: true });
       var _extends5 = require_extends();
-      var React54 = require_react();
+      var React56 = require_react();
       var isPropValid = require_emotion_is_prop_valid_cjs();
       var react = require_emotion_react_cjs();
       var utils = require_emotion_utils_cjs();
@@ -26400,7 +26400,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
             serializedNames += " " + next.name;
             next = next.next;
           }
-          return /* @__PURE__ */ React54.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedNames, _ref2.dangerouslySetInnerHTML = {
+          return /* @__PURE__ */ React56.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedNames, _ref2.dangerouslySetInnerHTML = {
             __html: rules
           }, _ref2.nonce = cache.sheet.nonce, _ref2));
         }
@@ -26455,7 +26455,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
               for (var key in props) {
                 mergedProps[key] = props[key];
               }
-              mergedProps.theme = React54.useContext(react.ThemeContext);
+              mergedProps.theme = React56.useContext(react.ThemeContext);
             }
             if (typeof props.className === "string") {
               className = utils.getRegisteredStyles(cache.registered, classInterpolations, props.className);
@@ -26478,11 +26478,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
             }
             newProps.className = className;
             newProps.ref = ref;
-            return /* @__PURE__ */ React54.createElement(React54.Fragment, null, /* @__PURE__ */ React54.createElement(Insertion, {
+            return /* @__PURE__ */ React56.createElement(React56.Fragment, null, /* @__PURE__ */ React56.createElement(Insertion, {
               cache,
               serialized,
               isStringTag: typeof FinalTag === "string"
-            }), /* @__PURE__ */ React54.createElement(FinalTag, newProps));
+            }), /* @__PURE__ */ React56.createElement(FinalTag, newProps));
           });
           Styled.displayName = identifierName !== void 0 ? identifierName : "Styled(" + (typeof baseTag === "string" ? baseTag : baseTag.displayName || baseTag.name || "Component") + ")";
           Styled.defaultProps = tag.defaultProps;
@@ -27716,7 +27716,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
   });
 
   // app/main.tsx
-  var import_react182 = __toESM(require_react());
+  var import_react186 = __toESM(require_react());
   var import_client = __toESM(require_client());
 
   // node_modules/@chakra-ui/react/dist/index.esm.js
@@ -50671,8 +50671,8 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
     var _class;
     var getItemOffset2 = _ref.getItemOffset, getEstimatedTotalSize2 = _ref.getEstimatedTotalSize, getItemSize2 = _ref.getItemSize, getOffsetForIndexAndAlignment2 = _ref.getOffsetForIndexAndAlignment, getStartIndexForOffset2 = _ref.getStartIndexForOffset, getStopIndexForStartIndex2 = _ref.getStopIndexForStartIndex, initInstanceProps2 = _ref.initInstanceProps, shouldResetStyleCacheOnItemSizeChange = _ref.shouldResetStyleCacheOnItemSizeChange, validateProps2 = _ref.validateProps;
     return _class = /* @__PURE__ */ function(_PureComponent) {
-      _inheritsLoose(List3, _PureComponent);
-      function List3(props) {
+      _inheritsLoose(List4, _PureComponent);
+      function List4(props) {
         var _this;
         _this = _PureComponent.call(this, props) || this;
         _this._instanceProps = initInstanceProps2(_this.props, _assertThisInitialized(_this));
@@ -50797,12 +50797,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         };
         return _this;
       }
-      List3.getDerivedStateFromProps = function getDerivedStateFromProps(nextProps, prevState) {
+      List4.getDerivedStateFromProps = function getDerivedStateFromProps(nextProps, prevState) {
         validateSharedProps$1(nextProps, prevState);
         validateProps2(nextProps);
         return null;
       };
-      var _proto = List3.prototype;
+      var _proto = List4.prototype;
       _proto.scrollTo = function scrollTo(scrollOffset) {
         scrollOffset = Math.max(0, scrollOffset);
         this.setState(function(prevState) {
@@ -50946,7 +50946,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         var overscanForward = !isScrolling || scrollDirection === "forward" ? Math.max(1, overscanCount) : 1;
         return [Math.max(0, startIndex - overscanBackward), Math.max(0, Math.min(itemCount - 1, stopIndex + overscanForward)), startIndex, stopIndex];
       };
-      return List3;
+      return List4;
     }(import_react138.PureComponent), _class.defaultProps = {
       direction: "ltr",
       itemData: void 0,
@@ -52958,7 +52958,60 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
   }
 
   // app/routes/telemetry-view.tsx
+  var import_react183 = __toESM(require_react());
+
+  // app/components/log-view/log-waterfall-view.tsx
+  var import_react181 = __toESM(require_react());
+
+  // app/components/log-view/log-header-row.tsx
   var import_react179 = __toESM(require_react());
+  function LogHeaderRow(props) {
+    let { headerRowHeight, nameColumnWidth, serviceNameColumnWidth } = props;
+    return /* @__PURE__ */ import_react179.default.createElement(Flex, {
+      height: `${headerRowHeight}px`
+    }, /* @__PURE__ */ import_react179.default.createElement(Flex, {
+      width: nameColumnWidth,
+      alignItems: "center"
+    }, /* @__PURE__ */ import_react179.default.createElement(Heading, {
+      paddingX: 2,
+      size: "sm"
+    }, "name")), /* @__PURE__ */ import_react179.default.createElement(Flex, {
+      width: serviceNameColumnWidth,
+      alignItems: "center"
+    }, /* @__PURE__ */ import_react179.default.createElement(Heading, {
+      paddingX: 1,
+      size: "sm"
+    }, "service.name")));
+  }
+
+  // app/components/log-view/log-waterfall-view.tsx
+  function LogWaterfallView(props) {
+    let containerRef = (0, import_react181.useRef)(null);
+    const size3 = useSize(containerRef);
+    let {
+      body,
+      severityText,
+      severityNumber,
+      droppedAttributeCount,
+      timestamp,
+      observedTimestamp
+    } = props.log;
+    const waterfallItemHeight = 50;
+    const headerRowHeight = 30;
+    const nameColumnWidth = 300;
+    const serviceNameColumnWidth = 200;
+    return /* @__PURE__ */ import_react181.default.createElement(Flex, {
+      direction: "column",
+      ref: containerRef,
+      height: "100%"
+    }, /* @__PURE__ */ import_react181.default.createElement(LogHeaderRow, {
+      headerRowHeight,
+      nameColumnWidth,
+      serviceNameColumnWidth
+    }), /* @__PURE__ */ import_react181.default.createElement("div", null, "log body ", body), /* @__PURE__ */ import_react181.default.createElement("div", null, "log severity numnber: ", severityNumber), /* @__PURE__ */ import_react181.default.createElement("div", null, "log severity text: ", severityText), /* @__PURE__ */ import_react181.default.createElement("div", null, "log droppedAttributeCount: ", severityText), /* @__PURE__ */ import_react181.default.createElement("div", null, "log timestamp ", timestamp), /* @__PURE__ */ import_react181.default.createElement("div", null, "log observed timestamp", observedTimestamp), /* @__PURE__ */ import_react181.default.createElement("div", null));
+  }
+
+  // app/routes/telemetry-view.tsx
   async function telemetryLoader({ params }) {
     let response = await fetch(`/api/telemetry/${params.id}`);
     let telemetryData = await response.json();
@@ -52966,12 +53019,12 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
   }
   function TelemetryView() {
     let telemetryData = useLoaderData();
-    let [telemetryType, setTelemetryType] = (0, import_react179.useState)(telemetryData.type);
+    let [telemetryType, setTelemetryType] = (0, import_react183.useState)(telemetryData.type);
     let logData = telemetryData.log;
-    (0, import_react179.useEffect)(() => {
+    (0, import_react183.useEffect)(() => {
       setTelemetryType(() => telemetryData.type);
     }, [telemetryData]);
-    return /* @__PURE__ */ import_react179.default.createElement(Grid, {
+    return /* @__PURE__ */ import_react183.default.createElement(Grid, {
       templateAreas: `"header detail"
                        "main detail"`,
       gridTemplateColumns: "1fr 350px",
@@ -52979,24 +53032,26 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
       gap: "0",
       height: "100vh",
       width: "100vw"
-    }, /* @__PURE__ */ import_react179.default.createElement(GridItem, {
+    }, /* @__PURE__ */ import_react183.default.createElement(GridItem, {
       area: "header"
-    }), /* @__PURE__ */ import_react179.default.createElement(GridItem, {
+    }), /* @__PURE__ */ import_react183.default.createElement(GridItem, {
       area: "main",
       marginLeft: "20px"
-    }, /* @__PURE__ */ import_react179.default.createElement("div", null, telemetryData.ID), /* @__PURE__ */ import_react179.default.createElement("div", null, `${telemetryData.type}`)), /* @__PURE__ */ import_react179.default.createElement(GridItem, {
+    }, telemetryType == "log" && /* @__PURE__ */ import_react183.default.createElement(LogWaterfallView, {
+      log: logData
+    }), telemetryType == "metric" && /* @__PURE__ */ import_react183.default.createElement("div", null, "metrics dont work yet")), /* @__PURE__ */ import_react183.default.createElement(GridItem, {
       area: "detail"
-    }, telemetryType == "log" && /* @__PURE__ */ import_react179.default.createElement("div", null, `${logData.body}`)));
+    }, telemetryType == "log" && /* @__PURE__ */ import_react183.default.createElement("div", null, `${logData.body}`)));
   }
 
   // app/error-page.tsx
-  var import_react181 = __toESM(require_react());
+  var import_react185 = __toESM(require_react());
   function ErrorPage() {
     const error = useRouteError();
     console.error(error);
-    return /* @__PURE__ */ import_react181.default.createElement("div", {
+    return /* @__PURE__ */ import_react185.default.createElement("div", {
       id: "error-page"
-    }, /* @__PURE__ */ import_react181.default.createElement("h1", null, "Oops!"), /* @__PURE__ */ import_react181.default.createElement("p", null, "Sorry, an unexpected error has occurred."), /* @__PURE__ */ import_react181.default.createElement("p", null, /* @__PURE__ */ import_react181.default.createElement("i", null, error.message)));
+    }, /* @__PURE__ */ import_react185.default.createElement("h1", null, "Oops!"), /* @__PURE__ */ import_react185.default.createElement("p", null, "Sorry, an unexpected error has occurred."), /* @__PURE__ */ import_react185.default.createElement("p", null, /* @__PURE__ */ import_react185.default.createElement("i", null, error.message)));
   }
 
   // app/main.tsx
@@ -53008,18 +53063,18 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
   var router = createBrowserRouter([
     {
       path: "/",
-      element: /* @__PURE__ */ import_react182.default.createElement(MainView, null),
+      element: /* @__PURE__ */ import_react186.default.createElement(MainView, null),
       loader: mainLoader,
-      errorElement: /* @__PURE__ */ import_react182.default.createElement(ErrorPage, null),
+      errorElement: /* @__PURE__ */ import_react186.default.createElement(ErrorPage, null),
       children: [
         {
           path: "traces/:traceID",
-          element: /* @__PURE__ */ import_react182.default.createElement(TraceView, null),
+          element: /* @__PURE__ */ import_react186.default.createElement(TraceView, null),
           loader: traceLoader
         },
         {
           path: "telemetry/:id",
-          element: /* @__PURE__ */ import_react182.default.createElement(TelemetryView, null),
+          element: /* @__PURE__ */ import_react186.default.createElement(TelemetryView, null),
           loader: telemetryLoader
         }
       ]
@@ -53029,9 +53084,9 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
   if (!!container2) {
     const root = (0, import_client.createRoot)(container2);
     root.render(
-      /* @__PURE__ */ import_react182.default.createElement(import_react182.default.StrictMode, null, /* @__PURE__ */ import_react182.default.createElement(ChakraProvider2, {
+      /* @__PURE__ */ import_react186.default.createElement(import_react186.default.StrictMode, null, /* @__PURE__ */ import_react186.default.createElement(ChakraProvider2, {
         theme: theme2
-      }, /* @__PURE__ */ import_react182.default.createElement(RouterProvider, {
+      }, /* @__PURE__ */ import_react186.default.createElement(RouterProvider, {
         router
       })))
     );
