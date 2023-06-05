@@ -9,6 +9,7 @@ import {
   TraceData,
 } from "../types/api-types";
 import { Header } from "../components/header-view/header";
+import { LogWaterfallView } from "../components/log-view/log-waterfall-view";
 
 export async function telemetryLoader({ params }: any) {
   let response = await fetch(`/api/telemetry/${params.id}`);
@@ -19,7 +20,6 @@ export async function telemetryLoader({ params }: any) {
 export default function TelemetryView() {
   let telemetryData = useLoaderData() as TelemetryData;
   let [telemetryType, setTelemetryType] = useState(telemetryData.type);
-
   let logData = telemetryData.log as LogData;
 
   useEffect(() => {
@@ -41,9 +41,8 @@ export default function TelemetryView() {
         area={"main"}
         marginLeft="20px"
       >
-        <div>{telemetryData.ID}</div>
-
-        <div>{`${telemetryData.type}`}</div>
+        {telemetryType == "log" && <LogWaterfallView log={logData} />}
+        {telemetryType == "metric" && <div>metrics dont work yet</div>}
       </GridItem>
       <GridItem area={"detail"}>
         {telemetryType == "log" && <div>{`${logData.body}`}</div>}
