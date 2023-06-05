@@ -9,10 +9,12 @@ import {
   TraceData,
 } from "../types/api-types";
 import { Header } from "../components/header-view/header";
+import { LogWaterfallView } from "../components/log-view/log-waterfall-view";
 
 export async function telemetryLoader({ params }: any) {
   let response = await fetch(`/api/telemetry/${params.id}`);
   let telemetryData = await response.json();
+  await console.log("telemetry data!", telemetryData); //what?
   return telemetryData;
 }
 
@@ -41,9 +43,10 @@ export default function TelemetryView() {
         area={"main"}
         marginLeft="20px"
       >
-        <div>{telemetryData.ID}</div>
+        <LogWaterfallView log={logData} />
+        {/* <div>{telemetryData.ID}</div>
 
-        <div>{`${telemetryData.type}`}</div>
+        <div>{`${telemetryData.type}`}</div> */}
       </GridItem>
       <GridItem area={"detail"}>
         {telemetryType == "log" && <div>{`${logData.body}`}</div>}
