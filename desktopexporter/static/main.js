@@ -227,7 +227,7 @@
           pureComponentPrototype.constructor = PureComponent2;
           assign(pureComponentPrototype, Component3.prototype);
           pureComponentPrototype.isPureReactComponent = true;
-          function createRef() {
+          function createRef2() {
             var refObject = {
               current: null
             };
@@ -1782,7 +1782,7 @@
           exports.createContext = createContext12;
           exports.createElement = createElement$1;
           exports.createFactory = createFactory;
-          exports.createRef = createRef;
+          exports.createRef = createRef2;
           exports.forwardRef = forwardRef7;
           exports.isValidElement = isValidElement7;
           exports.lazy = lazy;
@@ -52966,11 +52966,11 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
   // app/components/log-view/log-header-row.tsx
   var import_react179 = __toESM(require_react());
   function LogHeaderRow(props) {
-    let { headerRowHeight, spanNameColumnWidth, serviceNameColumnWidth } = props;
+    let { headerRowHeight, nameColumnWidth, serviceNameColumnWidth } = props;
     return /* @__PURE__ */ import_react179.default.createElement(Flex, {
       height: `${headerRowHeight}px`
     }, /* @__PURE__ */ import_react179.default.createElement(Flex, {
-      width: spanNameColumnWidth,
+      width: nameColumnWidth,
       alignItems: "center"
     }, /* @__PURE__ */ import_react179.default.createElement(Heading, {
       paddingX: 2,
@@ -52988,10 +52988,17 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
   function LogWaterfallView(props) {
     let containerRef = (0, import_react181.useRef)(null);
     const size3 = useSize(containerRef);
-    let { log } = props;
+    let {
+      body,
+      severityText,
+      severityNumber,
+      droppedAttributeCount,
+      timestamp,
+      observedTimestamp
+    } = props.log;
     const waterfallItemHeight = 50;
     const headerRowHeight = 30;
-    const spanNameColumnWidth = 300;
+    const nameColumnWidth = 300;
     const serviceNameColumnWidth = 200;
     return /* @__PURE__ */ import_react181.default.createElement(Flex, {
       direction: "column",
@@ -52999,16 +53006,15 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
       height: "100%"
     }, /* @__PURE__ */ import_react181.default.createElement(LogHeaderRow, {
       headerRowHeight,
-      spanNameColumnWidth,
+      nameColumnWidth,
       serviceNameColumnWidth
-    }));
+    }), /* @__PURE__ */ import_react181.default.createElement("div", null, "log body ", body), /* @__PURE__ */ import_react181.default.createElement("div", null, "log severity numnber: ", severityNumber), /* @__PURE__ */ import_react181.default.createElement("div", null, "log severity text: ", severityText), /* @__PURE__ */ import_react181.default.createElement("div", null, "log droppedAttributeCount: ", severityText), /* @__PURE__ */ import_react181.default.createElement("div", null, "log timestamp ", timestamp), /* @__PURE__ */ import_react181.default.createElement("div", null, "log observed timestamp", observedTimestamp), /* @__PURE__ */ import_react181.default.createElement("div", null));
   }
 
   // app/routes/telemetry-view.tsx
   async function telemetryLoader({ params }) {
     let response = await fetch(`/api/telemetry/${params.id}`);
     let telemetryData = await response.json();
-    await console.log("telemetry data!", telemetryData);
     return telemetryData;
   }
   function TelemetryView() {
@@ -53031,9 +53037,9 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
     }), /* @__PURE__ */ import_react183.default.createElement(GridItem, {
       area: "main",
       marginLeft: "20px"
-    }, /* @__PURE__ */ import_react183.default.createElement(LogWaterfallView, {
+    }, telemetryType == "log" && /* @__PURE__ */ import_react183.default.createElement(LogWaterfallView, {
       log: logData
-    })), /* @__PURE__ */ import_react183.default.createElement(GridItem, {
+    }), telemetryType == "metric" && /* @__PURE__ */ import_react183.default.createElement("div", null, "metrics dont work yet")), /* @__PURE__ */ import_react183.default.createElement(GridItem, {
       area: "detail"
     }, telemetryType == "log" && /* @__PURE__ */ import_react183.default.createElement("div", null, `${logData.body}`)));
   }

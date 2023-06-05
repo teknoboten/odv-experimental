@@ -4,17 +4,17 @@ import { Flex, Heading, List, ListItem, Spacer, Text } from "@chakra-ui/react";
 
 type LogHeaderRowProps = {
   headerRowHeight: number;
-  spanNameColumnWidth: number;
+  nameColumnWidth: number;
   serviceNameColumnWidth: number;
 };
 
 export function LogHeaderRow(props: LogHeaderRowProps) {
-  let { headerRowHeight, spanNameColumnWidth, serviceNameColumnWidth } = props;
+  let { headerRowHeight, nameColumnWidth, serviceNameColumnWidth } = props;
 
   return (
     <Flex height={`${headerRowHeight}px`}>
       <Flex
-        width={spanNameColumnWidth}
+        width={nameColumnWidth}
         alignItems="center"
       >
         <Heading

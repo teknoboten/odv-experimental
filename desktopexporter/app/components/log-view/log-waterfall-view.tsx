@@ -1,32 +1,36 @@
-import React, { useRef } from "react";
-import { FixedSizeList } from "react-window";
+import React, { useRef, createRef } from "react";
+import { useLoaderData } from "react-router-dom";
+// import { FixedSizeList } from "react-window";
 import { Flex } from "@chakra-ui/react";
 import { useSize } from "@chakra-ui/react-use-size";
 
 import { LogHeaderRow } from "./log-header-row";
+import { LogWaterfallRow } from "./log-waterfall-row";
 
-import { LogData } from "../../types/api-types";
+import { LogData, ScopeData } from "../../types/api-types";
+import Timestamp from "timestamp-nano";
 
 type LogWaterfallViewProps = {
   log: LogData;
 };
 
-function LogRow() {
-  return (
-    <div>
-      <p>log stuff gonna log</p>
-    </div>
-  );
-}
-
 export function LogWaterfallView(props: LogWaterfallViewProps) {
   let containerRef = useRef(null);
   const size = useSize(containerRef);
-  let { log } = props;
 
+  let {
+    body,
+    severityText,
+    severityNumber,
+    droppedAttributeCount,
+    timestamp,
+    observedTimestamp,
+  } = props.log;
+
+  //display data
   const waterfallItemHeight = 50;
   const headerRowHeight = 30;
-  const spanNameColumnWidth = 300;
+  const nameColumnWidth = 300;
   const serviceNameColumnWidth = 200;
 
   return (
@@ -38,20 +42,16 @@ export function LogWaterfallView(props: LogWaterfallViewProps) {
     >
       <LogHeaderRow
         headerRowHeight={headerRowHeight}
-        spanNameColumnWidth={spanNameColumnWidth}
+        nameColumnWidth={nameColumnWidth}
         serviceNameColumnWidth={serviceNameColumnWidth}
       />
-      {/* <FixedSizeList
-        className="List"
-        height={size ? size.height - headerRowHeight : 0}
-        itemData={rowData}
-        itemCount={orderedSpans.length}
-        itemSize={waterfallItemHeight}
-        ref={spanListRef}
-        width={"100%"}
-      >
-        {LogRow}
-      </FixedSizeList> */}
+      <div>log body {body}</div>
+      <div>log severity numnber: {severityNumber}</div>
+      <div>log severity text: {severityText}</div>
+      <div>log droppedAttributeCount: {severityText}</div>
+      <div>log timestamp {timestamp}</div>
+      <div>log observed timestamp{observedTimestamp}</div>
+      <div></div>
     </Flex>
   );
 }
