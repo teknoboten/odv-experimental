@@ -1,13 +1,7 @@
 import React, { useRef, createRef } from "react";
-import { useLoaderData } from "react-router-dom";
-// import { FixedSizeList } from "react-window";
 import { Flex } from "@chakra-ui/react";
-import { useSize } from "@chakra-ui/react-use-size";
-
 import { LogHeaderRow } from "./log-header-row";
-
-import { LogData, ScopeData } from "../../types/api-types";
-import Timestamp from "timestamp-nano";
+import { LogData, ResourceData } from "../../types/api-types";
 
 type LogWaterfallViewProps = {
   log: LogData;
@@ -15,7 +9,8 @@ type LogWaterfallViewProps = {
 
 export function LogWaterfallView(props: LogWaterfallViewProps) {
   let containerRef = useRef(null);
-  const size = useSize(containerRef);
+  let resource = { ...props.log.resource } as ResourceData;
+  let attributes = { ...resource.attributes };
 
   let {
     body,
@@ -27,7 +22,6 @@ export function LogWaterfallView(props: LogWaterfallViewProps) {
   } = props.log;
 
   //display data
-  const waterfallItemHeight = 50;
   const headerRowHeight = 30;
   const nameColumnWidth = 300;
   const serviceNameColumnWidth = 200;
@@ -44,13 +38,13 @@ export function LogWaterfallView(props: LogWaterfallViewProps) {
         nameColumnWidth={nameColumnWidth}
         serviceNameColumnWidth={serviceNameColumnWidth}
       />
-      <div>log body {body}</div>
-      <div>log severity numnber: {severityNumber}</div>
-      <div>log severity text: {severityText}</div>
-      <div>log droppedAttributeCount: {severityText}</div>
-      <div>log timestamp {timestamp}</div>
-      <div>log observed timestamp{observedTimestamp}</div>
-      <div></div>
+      <div>Service Name: {attributes[`service.name`]}</div>
+      <div>Body: {body}</div>
+      <div>Severity Number: {severityNumber}</div>
+      <div>Severity Text: {severityText}</div>
+      <div>DroppedAttributeCount: {severityText}</div>
+      <div>Timestamp {timestamp}</div>
+      <div>Observed Timestamp{observedTimestamp}</div>
     </Flex>
   );
 }
