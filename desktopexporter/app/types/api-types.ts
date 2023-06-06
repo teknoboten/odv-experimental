@@ -39,6 +39,8 @@ export type TelemetryData = {
 
 export type MetricData = {
   name: string;
+  description: string;
+  unit: string;
   resource: ResourceData;
   scope: ScopeData;
 };
