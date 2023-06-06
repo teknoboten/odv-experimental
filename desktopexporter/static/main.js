@@ -1009,11 +1009,11 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useReducer(reducer, initialArg, init);
           }
-          function useRef31(initialValue) {
+          function useRef30(initialValue) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
-          function useEffect41(create, deps) {
+          function useEffect40(create, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useEffect(create, deps);
           }
@@ -1793,14 +1793,14 @@
           exports.useContext = useContext16;
           exports.useDebugValue = useDebugValue2;
           exports.useDeferredValue = useDeferredValue;
-          exports.useEffect = useEffect41;
+          exports.useEffect = useEffect40;
           exports.useId = useId8;
           exports.useImperativeHandle = useImperativeHandle;
           exports.useInsertionEffect = useInsertionEffect2;
           exports.useLayoutEffect = useLayoutEffect9;
           exports.useMemo = useMemo19;
           exports.useReducer = useReducer;
-          exports.useRef = useRef31;
+          exports.useRef = useRef30;
           exports.useState = useState25;
           exports.useSyncExternalStore = useSyncExternalStore3;
           exports.useTransition = useTransition;
@@ -2297,9 +2297,9 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React56 = require_react();
+          var React54 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React56.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React54.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -3820,7 +3820,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React56.Children.forEach(props.children, function(child) {
+                  React54.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -11981,7 +11981,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React56.Component().refs;
+          var emptyRefsObject = new React54.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -25638,7 +25638,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
     "node_modules/@emotion/use-insertion-effect-with-fallbacks/dist/emotion-use-insertion-effect-with-fallbacks.cjs.dev.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: true });
-      var React56 = require_react();
+      var React54 = require_react();
       function _interopNamespace(e) {
         if (e && e.__esModule)
           return e;
@@ -25659,14 +25659,14 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         n["default"] = e;
         return Object.freeze(n);
       }
-      var React__namespace = /* @__PURE__ */ _interopNamespace(React56);
+      var React__namespace = /* @__PURE__ */ _interopNamespace(React54);
       var isBrowser3 = typeof document !== "undefined";
       var syncFallback = function syncFallback2(create) {
         return create();
       };
       var useInsertionEffect2 = React__namespace["useInsertionEffect"] ? React__namespace["useInsertionEffect"] : false;
       var useInsertionEffectAlwaysWithSyncFallback = !isBrowser3 ? syncFallback : useInsertionEffect2 || syncFallback;
-      var useInsertionEffectWithLayoutFallback = useInsertionEffect2 || React56.useLayoutEffect;
+      var useInsertionEffectWithLayoutFallback = useInsertionEffect2 || React54.useLayoutEffect;
       exports.useInsertionEffectAlwaysWithSyncFallback = useInsertionEffectAlwaysWithSyncFallback;
       exports.useInsertionEffectWithLayoutFallback = useInsertionEffectWithLayoutFallback;
     }
@@ -25688,7 +25688,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
   var require_emotion_element_b63ca7c6_cjs_dev = __commonJS({
     "node_modules/@emotion/react/dist/emotion-element-b63ca7c6.cjs.dev.js"(exports) {
       "use strict";
-      var React56 = require_react();
+      var React54 = require_react();
       var createCache = require_emotion_cache_cjs();
       var _extends5 = require_extends();
       var weakMemoize = require_emotion_weak_memoize_cjs();
@@ -25703,7 +25703,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       var weakMemoize__default = /* @__PURE__ */ _interopDefault(weakMemoize);
       var isBrowser3 = typeof document !== "undefined";
       var hasOwnProperty = {}.hasOwnProperty;
-      var EmotionCacheContext = /* @__PURE__ */ React56.createContext(
+      var EmotionCacheContext = /* @__PURE__ */ React54.createContext(
         typeof HTMLElement !== "undefined" ? /* @__PURE__ */ createCache__default["default"]({
           key: "css"
         }) : null
@@ -25713,23 +25713,23 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       }
       var CacheProvider = EmotionCacheContext.Provider;
       var __unsafe_useEmotionCache = function useEmotionCache() {
-        return React56.useContext(EmotionCacheContext);
+        return React54.useContext(EmotionCacheContext);
       };
       exports.withEmotionCache = function withEmotionCache(func) {
-        return /* @__PURE__ */ React56.forwardRef(function(props, ref) {
-          var cache = React56.useContext(EmotionCacheContext);
+        return /* @__PURE__ */ React54.forwardRef(function(props, ref) {
+          var cache = React54.useContext(EmotionCacheContext);
           return func(props, cache, ref);
         });
       };
       if (!isBrowser3) {
         exports.withEmotionCache = function withEmotionCache(func) {
           return function(props) {
-            var cache = React56.useContext(EmotionCacheContext);
+            var cache = React54.useContext(EmotionCacheContext);
             if (cache === null) {
               cache = createCache__default["default"]({
                 key: "css"
               });
-              return /* @__PURE__ */ React56.createElement(EmotionCacheContext.Provider, {
+              return /* @__PURE__ */ React54.createElement(EmotionCacheContext.Provider, {
                 value: cache
               }, func(props, cache));
             } else {
@@ -25738,12 +25738,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
           };
         };
       }
-      var ThemeContext2 = /* @__PURE__ */ React56.createContext({});
+      var ThemeContext2 = /* @__PURE__ */ React54.createContext({});
       if (true) {
         ThemeContext2.displayName = "EmotionThemeContext";
       }
       var useTheme2 = function useTheme3() {
-        return React56.useContext(ThemeContext2);
+        return React54.useContext(ThemeContext2);
       };
       var getTheme2 = function getTheme3(outerTheme, theme3) {
         if (typeof theme3 === "function") {
@@ -25764,24 +25764,24 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         });
       });
       var ThemeProvider2 = function ThemeProvider3(props) {
-        var theme3 = React56.useContext(ThemeContext2);
+        var theme3 = React54.useContext(ThemeContext2);
         if (props.theme !== theme3) {
           theme3 = createCacheWithTheme(theme3)(props.theme);
         }
-        return /* @__PURE__ */ React56.createElement(ThemeContext2.Provider, {
+        return /* @__PURE__ */ React54.createElement(ThemeContext2.Provider, {
           value: theme3
         }, props.children);
       };
       function withTheme(Component3) {
         var componentName = Component3.displayName || Component3.name || "Component";
         var render = function render2(props, ref) {
-          var theme3 = React56.useContext(ThemeContext2);
-          return /* @__PURE__ */ React56.createElement(Component3, _extends5({
+          var theme3 = React54.useContext(ThemeContext2);
+          return /* @__PURE__ */ React54.createElement(Component3, _extends5({
             theme: theme3,
             ref
           }, props));
         };
-        var WithTheme = /* @__PURE__ */ React56.forwardRef(render);
+        var WithTheme = /* @__PURE__ */ React54.forwardRef(render);
         WithTheme.displayName = "WithTheme(" + componentName + ")";
         return _isolatedHnrs_dist_emotionReact_isolatedHnrs["default"](WithTheme, Component3);
       }
@@ -25851,7 +25851,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
             serializedNames += " " + next.name;
             next = next.next;
           }
-          return /* @__PURE__ */ React56.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedNames, _ref2.dangerouslySetInnerHTML = {
+          return /* @__PURE__ */ React54.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedNames, _ref2.dangerouslySetInnerHTML = {
             __html: rules
           }, _ref2.nonce = cache.sheet.nonce, _ref2));
         }
@@ -25870,7 +25870,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         } else if (props.className != null) {
           className = props.className + " ";
         }
-        var serialized = serialize.serializeStyles(registeredStyles, void 0, React56.useContext(ThemeContext2));
+        var serialized = serialize.serializeStyles(registeredStyles, void 0, React54.useContext(ThemeContext2));
         if (serialized.name.indexOf("-") === -1) {
           var labelFromStack = props[labelPropName];
           if (labelFromStack) {
@@ -25886,11 +25886,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         }
         newProps.ref = ref;
         newProps.className = className;
-        return /* @__PURE__ */ React56.createElement(React56.Fragment, null, /* @__PURE__ */ React56.createElement(Insertion, {
+        return /* @__PURE__ */ React54.createElement(React54.Fragment, null, /* @__PURE__ */ React54.createElement(Insertion, {
           cache,
           serialized,
           isStringTag: typeof WrappedComponent === "string"
-        }), /* @__PURE__ */ React56.createElement(WrappedComponent, newProps));
+        }), /* @__PURE__ */ React54.createElement(WrappedComponent, newProps));
       });
       if (true) {
         Emotion.displayName = "EmotionCssPropInternal";
@@ -25913,7 +25913,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
     "node_modules/@emotion/react/dist/emotion-react.cjs.dev.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: true });
-      var React56 = require_react();
+      var React54 = require_react();
       require_emotion_cache_cjs();
       var emotionElement = require_emotion_element_b63ca7c6_cjs_dev();
       require_extends();
@@ -26048,7 +26048,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       var jsx = function jsx2(type, props) {
         var args = arguments;
         if (props == null || !emotionElement.hasOwnProperty.call(props, "css")) {
-          return React56.createElement.apply(void 0, args);
+          return React54.createElement.apply(void 0, args);
         }
         var argsLength = args.length;
         var createElementArgArray = new Array(argsLength);
@@ -26057,7 +26057,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         for (var i = 2; i < argsLength; i++) {
           createElementArgArray[i] = args[i];
         }
-        return React56.createElement.apply(null, createElementArgArray);
+        return React54.createElement.apply(null, createElementArgArray);
       };
       var warnedAboutCssPropForGlobal = false;
       var Global3 = /* @__PURE__ */ emotionElement.withEmotionCache(function(props, cache) {
@@ -26066,7 +26066,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
           warnedAboutCssPropForGlobal = true;
         }
         var styles2 = props.styles;
-        var serialized = serialize.serializeStyles([styles2], void 0, React56.useContext(emotionElement.ThemeContext));
+        var serialized = serialize.serializeStyles([styles2], void 0, React54.useContext(emotionElement.ThemeContext));
         if (!emotionElement.isBrowser) {
           var _ref;
           var serializedNames = serialized.name;
@@ -26085,11 +26085,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
           if (shouldCache) {
             return null;
           }
-          return /* @__PURE__ */ React56.createElement("style", (_ref = {}, _ref["data-emotion"] = cache.key + "-global " + serializedNames, _ref.dangerouslySetInnerHTML = {
+          return /* @__PURE__ */ React54.createElement("style", (_ref = {}, _ref["data-emotion"] = cache.key + "-global " + serializedNames, _ref.dangerouslySetInnerHTML = {
             __html: rules
           }, _ref.nonce = cache.sheet.nonce, _ref));
         }
-        var sheetRef = React56.useRef();
+        var sheetRef = React54.useRef();
         useInsertionEffectWithFallbacks.useInsertionEffectWithLayoutFallback(function() {
           var key = cache.key + "-global";
           var sheet = new cache.sheet.constructor({
@@ -26217,7 +26217,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         });
         if (!emotionElement.isBrowser && rules.length !== 0) {
           var _ref2;
-          return /* @__PURE__ */ React56.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedArr.map(function(serialized) {
+          return /* @__PURE__ */ React54.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedArr.map(function(serialized) {
             return serialized.name;
           }).join(" "), _ref2.dangerouslySetInnerHTML = {
             __html: rules
@@ -26252,11 +26252,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         var content = {
           css: css3,
           cx: cx9,
-          theme: React56.useContext(emotionElement.ThemeContext)
+          theme: React54.useContext(emotionElement.ThemeContext)
         };
         var ele = props.children(content);
         hasRendered = true;
-        return /* @__PURE__ */ React56.createElement(React56.Fragment, null, /* @__PURE__ */ React56.createElement(Insertion, {
+        return /* @__PURE__ */ React54.createElement(React54.Fragment, null, /* @__PURE__ */ React54.createElement(Insertion, {
           cache,
           serializedArr
         }), ele);
@@ -26351,7 +26351,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: true });
       var _extends5 = require_extends();
-      var React56 = require_react();
+      var React54 = require_react();
       var isPropValid = require_emotion_is_prop_valid_cjs();
       var react = require_emotion_react_cjs();
       var utils = require_emotion_utils_cjs();
@@ -26400,7 +26400,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
             serializedNames += " " + next.name;
             next = next.next;
           }
-          return /* @__PURE__ */ React56.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedNames, _ref2.dangerouslySetInnerHTML = {
+          return /* @__PURE__ */ React54.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedNames, _ref2.dangerouslySetInnerHTML = {
             __html: rules
           }, _ref2.nonce = cache.sheet.nonce, _ref2));
         }
@@ -26455,7 +26455,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
               for (var key in props) {
                 mergedProps[key] = props[key];
               }
-              mergedProps.theme = React56.useContext(react.ThemeContext);
+              mergedProps.theme = React54.useContext(react.ThemeContext);
             }
             if (typeof props.className === "string") {
               className = utils.getRegisteredStyles(cache.registered, classInterpolations, props.className);
@@ -26478,11 +26478,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
             }
             newProps.className = className;
             newProps.ref = ref;
-            return /* @__PURE__ */ React56.createElement(React56.Fragment, null, /* @__PURE__ */ React56.createElement(Insertion, {
+            return /* @__PURE__ */ React54.createElement(React54.Fragment, null, /* @__PURE__ */ React54.createElement(Insertion, {
               cache,
               serialized,
               isStringTag: typeof FinalTag === "string"
-            }), /* @__PURE__ */ React56.createElement(FinalTag, newProps));
+            }), /* @__PURE__ */ React54.createElement(FinalTag, newProps));
           });
           Styled.displayName = identifierName !== void 0 ? identifierName : "Styled(" + (typeof baseTag === "string" ? baseTag : baseTag.displayName || baseTag.name || "Component") + ")";
           Styled.defaultProps = tag.defaultProps;
@@ -27716,7 +27716,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
   });
 
   // app/main.tsx
-  var import_react186 = __toESM(require_react());
+  var import_react184 = __toESM(require_react());
   var import_client = __toESM(require_client());
 
   // node_modules/@chakra-ui/react/dist/index.esm.js
@@ -50504,10 +50504,10 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
   }
 
   // app/routes/main-view.tsx
-  var import_react151 = __toESM(require_react());
+  var import_react148 = __toESM(require_react());
 
   // app/components/sidebar-view/sidebar.tsx
-  var import_react147 = __toESM(require_react());
+  var import_react144 = __toESM(require_react());
 
   // app/components/sidebar-view/telemetry-list.tsx
   var import_react139 = __toESM(require_react());
@@ -51162,9 +51162,17 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       ref: summaryListRef
     }, SidebarRow));
   }
+  async function clearTraceData() {
+    let response = await fetch("/api/clearData");
+    if (!response.ok) {
+      throw new Error("HTTP status " + response.status);
+    } else {
+      window.location.replace("/");
+    }
+  }
 
   // app/components/sidebar-view/sidebar-header.tsx
-  var import_react145 = __toESM(require_react());
+  var import_react142 = __toESM(require_react());
 
   // node_modules/@chakra-ui/icons/dist/index.esm.js
   var import_react141 = __toESM(require_react());
@@ -51623,82 +51631,34 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
     d: "M 3 5 A 1.0001 1.0001 0 1 0 3 7 L 21 7 A 1.0001 1.0001 0 1 0 21 5 L 3 5 z M 3 11 A 1.0001 1.0001 0 1 0 3 13 L 21 13 A 1.0001 1.0001 0 1 0 21 11 L 3 11 z M 3 17 A 1.0001 1.0001 0 1 0 3 19 L 21 19 A 1.0001 1.0001 0 1 0 21 17 L 3 17 z"
   });
 
-  // app/components/sidebar-view/trace-list.tsx
-  var import_react144 = __toESM(require_react());
-
-  // app/utils/use-key-press.ts
-  var import_react142 = __toESM(require_react());
-  var useKeyPress = (targetKeys) => {
-    let [keyPressed, setKeyPressed] = (0, import_react142.useState)(false);
-    (0, import_react142.useEffect)(
-      () => {
-        const downHandler = (event) => {
-          if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) {
-            return;
-          }
-          event.preventDefault();
-          if (targetKeys.includes(event.key)) {
-            setKeyPressed(true);
-          }
-        };
-        const upHandler = (event) => {
-          if (targetKeys.includes(event.key)) {
-            setKeyPressed(false);
-          }
-        };
-        window.addEventListener("keydown", downHandler);
-        window.addEventListener("keyup", upHandler);
-        return () => {
-          window.removeEventListener("keydown", downHandler);
-          window.removeEventListener("keyup", upHandler);
-        };
-      },
-      [targetKeys, setKeyPressed]
-    );
-    return keyPressed;
-  };
-
-  // app/components/modals/keyboard-help.tsx
-  var import_react143 = __toESM(require_react());
-
-  // app/components/sidebar-view/trace-list.tsx
-  async function clearTraceData() {
-    let response = await fetch("/api/clearData");
-    if (!response.ok) {
-      throw new Error("HTTP status " + response.status);
-    } else {
-      window.location.replace("/");
-    }
-  }
-
   // app/components/sidebar-view/sidebar-header.tsx
   function SidebarHeader(props) {
     let { toggleColorMode } = useColorMode();
-    let colourModeIcon = useColorModeValue(/* @__PURE__ */ import_react145.default.createElement(MoonIcon, null), /* @__PURE__ */ import_react145.default.createElement(SunIcon, null));
+    let colourModeIcon = useColorModeValue(/* @__PURE__ */ import_react142.default.createElement(MoonIcon, null), /* @__PURE__ */ import_react142.default.createElement(SunIcon, null));
     let { isFullWidth, isFullWidthDisabled, toggleSidebarWidth, numNewTraces } = props;
     if (isFullWidth) {
-      return /* @__PURE__ */ import_react145.default.createElement(Flex, {
+      return /* @__PURE__ */ import_react142.default.createElement(Flex, {
         direction: "column",
         height: "fit-content",
         justifyContent: "space-evenly"
-      }, /* @__PURE__ */ import_react145.default.createElement(Flex, {
+      }, /* @__PURE__ */ import_react142.default.createElement(Flex, {
         justifyContent: "flex-start",
         alignItems: "center",
         height: "50px"
-      }, /* @__PURE__ */ import_react145.default.createElement(Button, {
+      }, /* @__PURE__ */ import_react142.default.createElement(Button, {
         size: "md",
         "aria-label": "Clear Trace Data",
         variant: "ghost",
         colorScheme: "pink",
         fontWeight: "normal",
-        leftIcon: /* @__PURE__ */ import_react145.default.createElement(DeleteIcon, null),
+        leftIcon: /* @__PURE__ */ import_react142.default.createElement(DeleteIcon, null),
         marginStart: "10px",
         onClick: clearTraceData
-      }, /* @__PURE__ */ import_react145.default.createElement(Text, {
+      }, /* @__PURE__ */ import_react142.default.createElement(Text, {
         fontSize: "sm",
         fontWeight: "bold",
         color: "ButtonText"
-      }, "Clear Traces")), /* @__PURE__ */ import_react145.default.createElement(Spacer, null), /* @__PURE__ */ import_react145.default.createElement(IconButton, {
+      }, "Clear Traces")), /* @__PURE__ */ import_react142.default.createElement(Spacer, null), /* @__PURE__ */ import_react142.default.createElement(IconButton, {
         size: "md",
         "aria-label": "Toggle Colour Mode",
         variant: "ghost",
@@ -51706,48 +51666,48 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         icon: colourModeIcon,
         marginEnd: "2px",
         onClick: toggleColorMode
-      }), /* @__PURE__ */ import_react145.default.createElement(IconButton, {
+      }), /* @__PURE__ */ import_react142.default.createElement(IconButton, {
         size: "md",
         "aria-label": "Collapse Sidebar",
         variant: "ghost",
         colorScheme: "pink",
-        icon: /* @__PURE__ */ import_react145.default.createElement(ArrowLeftIcon, null),
+        icon: /* @__PURE__ */ import_react142.default.createElement(ArrowLeftIcon, null),
         marginEnd: "10px",
         onClick: toggleSidebarWidth
-      })), /* @__PURE__ */ import_react145.default.createElement(Flex, {
+      })), /* @__PURE__ */ import_react142.default.createElement(Flex, {
         justifyContent: "flex-start",
         alignItems: "center",
         transition: "height 0.2s ease-in-out",
         height: numNewTraces > 0 ? "50px" : 0,
         overflow: "hidden"
-      }, /* @__PURE__ */ import_react145.default.createElement(Button, {
+      }, /* @__PURE__ */ import_react142.default.createElement(Button, {
         size: "md",
         "aria-label": "Refresh",
         variant: "ghost",
         colorScheme: "pink",
         fontWeight: "normal",
-        leftIcon: /* @__PURE__ */ import_react145.default.createElement(RepeatIcon, null),
+        leftIcon: /* @__PURE__ */ import_react142.default.createElement(RepeatIcon, null),
         marginX: "10px",
         justifyContent: "flex-start",
         onClick: () => {
           window.location.reload();
         }
-      }, /* @__PURE__ */ import_react145.default.createElement(Text, {
+      }, /* @__PURE__ */ import_react142.default.createElement(Text, {
         fontSize: "sm",
         fontWeight: "bold",
         color: "ButtonText"
       }, numNewTraces, " New Trace", numNewTraces === 1 ? " " : "s"))));
     }
-    return /* @__PURE__ */ import_react145.default.createElement(import_react145.default.Fragment, null, /* @__PURE__ */ import_react145.default.createElement(IconButton, {
+    return /* @__PURE__ */ import_react142.default.createElement(import_react142.default.Fragment, null, /* @__PURE__ */ import_react142.default.createElement(IconButton, {
       size: "md",
       "aria-label": "Expand Sidebar",
       colorScheme: "pink",
       variant: "ghost",
-      icon: /* @__PURE__ */ import_react145.default.createElement(ArrowRightIcon, null),
+      icon: /* @__PURE__ */ import_react142.default.createElement(ArrowRightIcon, null),
       marginTop: "10px",
       onClick: toggleSidebarWidth,
       isDisabled: isFullWidthDisabled
-    }), /* @__PURE__ */ import_react145.default.createElement(IconButton, {
+    }), /* @__PURE__ */ import_react142.default.createElement(IconButton, {
       size: "md",
       "aria-label": "Toggle Colour Mode",
       colorScheme: "pink",
@@ -51766,29 +51726,29 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
     let { isFullWidth, toggleSidebarWidth, summaries, numNewTraces } = props;
     let isFullWidthDisabled = summaries.length === 0;
     if (isFullWidth) {
-      return /* @__PURE__ */ import_react147.default.createElement(Flex, {
+      return /* @__PURE__ */ import_react144.default.createElement(Flex, {
         backgroundColor: sidebarColour,
         flexShrink: "0",
         direction: "column",
         transition: "width 0.2s ease-in-out",
         width: sidebarFullWidth
-      }, /* @__PURE__ */ import_react147.default.createElement(SidebarHeader, {
+      }, /* @__PURE__ */ import_react144.default.createElement(SidebarHeader, {
         isFullWidth,
         toggleSidebarWidth,
         isFullWidthDisabled: false,
         numNewTraces
-      }), /* @__PURE__ */ import_react147.default.createElement(TelemetryList, {
+      }), /* @__PURE__ */ import_react144.default.createElement(TelemetryList, {
         summaries
       }));
     }
-    return /* @__PURE__ */ import_react147.default.createElement(Flex, {
+    return /* @__PURE__ */ import_react144.default.createElement(Flex, {
       alignItems: "center",
       backgroundColor: sidebarColour,
       flexShrink: "0",
       direction: "column",
       transition: "width 0.2s ease-in-out",
       width: sidebarCollapsedWidth
-    }, /* @__PURE__ */ import_react147.default.createElement(SidebarHeader, {
+    }, /* @__PURE__ */ import_react144.default.createElement(SidebarHeader, {
       isFullWidth,
       isFullWidthDisabled,
       toggleSidebarWidth,
@@ -51797,7 +51757,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
   }
 
   // app/components/empty-state-view/empty-state-view.tsx
-  var import_react149 = __toESM(require_react());
+  var import_react146 = __toESM(require_react());
   async function loadSampleData() {
     let response = await fetch("/api/sampleData");
     if (!response.ok) {
@@ -51809,7 +51769,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
   function SampleDataButton() {
     let [isLoading, setIsLoading] = useBoolean(false);
     if (isLoading) {
-      return /* @__PURE__ */ import_react149.default.createElement(Button, {
+      return /* @__PURE__ */ import_react146.default.createElement(Button, {
         isLoading: true,
         colorScheme: "pink",
         loadingText: "Loading",
@@ -51817,7 +51777,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         width: "fit-content"
       });
     }
-    return /* @__PURE__ */ import_react149.default.createElement(Button, {
+    return /* @__PURE__ */ import_react146.default.createElement(Button, {
       colorScheme: "pink",
       width: "fit-content",
       onClick: () => {
@@ -51832,13 +51792,13 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       "whiteAlpha.700",
       "blackAlpha.500"
     );
-    return /* @__PURE__ */ import_react149.default.createElement(Flex, {
+    return /* @__PURE__ */ import_react146.default.createElement(Flex, {
       flexDirection: "column",
       align: "center",
       justifyItems: "center",
       width: "100%",
       overflowY: "scroll"
-    }, /* @__PURE__ */ import_react149.default.createElement(Card, {
+    }, /* @__PURE__ */ import_react146.default.createElement(Card, {
       align: "center",
       backgroundColor: cardBackgroundColour,
       marginY: "64px",
@@ -51846,81 +51806,81 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       padding: "30px",
       variant: "filled",
       width: "60%"
-    }, /* @__PURE__ */ import_react149.default.createElement(CardHeader, {
+    }, /* @__PURE__ */ import_react146.default.createElement(CardHeader, {
       borderRadius: "lg",
       paddingY: "0"
-    }, /* @__PURE__ */ import_react149.default.createElement(Flex, {
+    }, /* @__PURE__ */ import_react146.default.createElement(Flex, {
       width: "100%"
-    }, /* @__PURE__ */ import_react149.default.createElement(Image2, {
+    }, /* @__PURE__ */ import_react146.default.createElement(Image2, {
       src: "assets/images/lulu.png",
       alt: "A pink axolotl is striking a heroic pose while gazing at a field of stars through a telescope. Her name is Lulu Axol'Otel the First, valiant adventurer and observability queen.",
       maxHeight: "400px",
       maxWidth: "400px",
       borderRadius: "lg"
-    }), /* @__PURE__ */ import_react149.default.createElement(Flex, {
+    }), /* @__PURE__ */ import_react146.default.createElement(Flex, {
       marginLeft: "24px",
       justifyContent: "flex-end",
       direction: "column"
-    }, /* @__PURE__ */ import_react149.default.createElement(Stack, {
+    }, /* @__PURE__ */ import_react146.default.createElement(Stack, {
       spacing: 3
-    }, /* @__PURE__ */ import_react149.default.createElement(Heading, {
+    }, /* @__PURE__ */ import_react146.default.createElement(Heading, {
       size: "lg"
-    }, "Welcome to the OpenTelemetry Desktop Viewer."), /* @__PURE__ */ import_react149.default.createElement(Divider, null), /* @__PURE__ */ import_react149.default.createElement(Text, null, "This CLI tool allows you to receive OpenTelemetry traces while working on your local machine, helping you visualize and explore your trace data without needing to send it on to a telemetry vendor.")), /* @__PURE__ */ import_react149.default.createElement(Stack, {
+    }, "Welcome to the OpenTelemetry Desktop Viewer."), /* @__PURE__ */ import_react146.default.createElement(Divider, null), /* @__PURE__ */ import_react146.default.createElement(Text, null, "This CLI tool allows you to receive OpenTelemetry traces while working on your local machine, helping you visualize and explore your trace data without needing to send it on to a telemetry vendor.")), /* @__PURE__ */ import_react146.default.createElement(Stack, {
       spacing: 3,
       marginTop: "24px"
-    }, /* @__PURE__ */ import_react149.default.createElement(Heading, {
+    }, /* @__PURE__ */ import_react146.default.createElement(Heading, {
       size: "md"
-    }, "Explore with Sample Data"), /* @__PURE__ */ import_react149.default.createElement(Divider, null), /* @__PURE__ */ import_react149.default.createElement(Text, null, "If you would like to explore the application without sending it anything, you can do so by loading some sample data."), /* @__PURE__ */ import_react149.default.createElement(SampleDataButton, null))))), /* @__PURE__ */ import_react149.default.createElement(CardBody, null, /* @__PURE__ */ import_react149.default.createElement(Stack, {
+    }, "Explore with Sample Data"), /* @__PURE__ */ import_react146.default.createElement(Divider, null), /* @__PURE__ */ import_react146.default.createElement(Text, null, "If you would like to explore the application without sending it anything, you can do so by loading some sample data."), /* @__PURE__ */ import_react146.default.createElement(SampleDataButton, null))))), /* @__PURE__ */ import_react146.default.createElement(CardBody, null, /* @__PURE__ */ import_react146.default.createElement(Stack, {
       spacing: 3
-    }, /* @__PURE__ */ import_react149.default.createElement(Heading, {
+    }, /* @__PURE__ */ import_react146.default.createElement(Heading, {
       size: "md"
-    }, "Configuring your OpenTelemetry SDK"), /* @__PURE__ */ import_react149.default.createElement(Divider, null), /* @__PURE__ */ import_react149.default.createElement(Text, null, "To send telemetry to OpenTelemetry Desktop Viewer from your application, you need to configure an OTLP exporter to send via grpc to", " ", /* @__PURE__ */ import_react149.default.createElement(Code, {
+    }, "Configuring your OpenTelemetry SDK"), /* @__PURE__ */ import_react146.default.createElement(Divider, null), /* @__PURE__ */ import_react146.default.createElement(Text, null, "To send telemetry to OpenTelemetry Desktop Viewer from your application, you need to configure an OTLP exporter to send via grpc to", " ", /* @__PURE__ */ import_react146.default.createElement(Code, {
       backgroundColor: codeBackgroundColour
-    }, "http://localhost:4317"), " ", "or via http to", " ", /* @__PURE__ */ import_react149.default.createElement(Code, {
+    }, "http://localhost:4317"), " ", "or via http to", " ", /* @__PURE__ */ import_react146.default.createElement(Code, {
       backgroundColor: codeBackgroundColour
-    }, "http://localhost:4318"), "."), /* @__PURE__ */ import_react149.default.createElement(Text, null, "If your OpenTelemetry SDK OTLP exporter supports", " ", /* @__PURE__ */ import_react149.default.createElement(Link, {
+    }, "http://localhost:4318"), "."), /* @__PURE__ */ import_react146.default.createElement(Text, null, "If your OpenTelemetry SDK OTLP exporter supports", " ", /* @__PURE__ */ import_react146.default.createElement(Link, {
       color: "teal.500",
       href: "https://opentelemetry.io/docs/concepts/sdk-configuration/otlp-exporter-configuration/",
       isExternal: true
-    }, "configuration via environment variables", " "), " ", "then you should be able to send to", " ", /* @__PURE__ */ import_react149.default.createElement(Code, {
+    }, "configuration via environment variables", " "), " ", "then you should be able to send to", " ", /* @__PURE__ */ import_react146.default.createElement(Code, {
       backgroundColor: codeBackgroundColour
-    }, "otel-desktop-viewer"), " ", "with the following environment variables set."), /* @__PURE__ */ import_react149.default.createElement(Heading, {
+    }, "otel-desktop-viewer"), " ", "with the following environment variables set."), /* @__PURE__ */ import_react146.default.createElement(Heading, {
       size: "sm"
-    }, "For HTTP:"), /* @__PURE__ */ import_react149.default.createElement(Flex, {
+    }, "For HTTP:"), /* @__PURE__ */ import_react146.default.createElement(Flex, {
       backgroundColor: codeBackgroundColour,
       padding: 2
-    }, /* @__PURE__ */ import_react149.default.createElement(Code, {
+    }, /* @__PURE__ */ import_react146.default.createElement(Code, {
       backgroundColor: "transparent",
       display: "block",
       whiteSpace: "pre",
       children: `export OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4318"
 export OTEL_TRACES_EXPORTER="otlp"
 export OTEL_EXPORTER_OTLP_PROTOCOL="http/protobuf"`
-    })), /* @__PURE__ */ import_react149.default.createElement(Heading, {
+    })), /* @__PURE__ */ import_react146.default.createElement(Heading, {
       size: "sm"
-    }, "For GRPC:"), /* @__PURE__ */ import_react149.default.createElement(Flex, {
+    }, "For GRPC:"), /* @__PURE__ */ import_react146.default.createElement(Flex, {
       backgroundColor: codeBackgroundColour,
       padding: 2
-    }, /* @__PURE__ */ import_react149.default.createElement(Code, {
+    }, /* @__PURE__ */ import_react146.default.createElement(Code, {
       backgroundColor: "transparent",
       display: "block",
       whiteSpace: "pre",
       children: `export OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4317"
 export OTEL_TRACES_EXPORTER="otlp"
 export OTEL_EXPORTER_OTLP_PROTOCOL="grpc"`
-    }))), /* @__PURE__ */ import_react149.default.createElement(Stack, {
+    }))), /* @__PURE__ */ import_react146.default.createElement(Stack, {
       spacing: 3,
       marginTop: "30px"
-    }, /* @__PURE__ */ import_react149.default.createElement(Heading, {
+    }, /* @__PURE__ */ import_react146.default.createElement(Heading, {
       size: "md"
-    }, "Example with otel-cli"), /* @__PURE__ */ import_react149.default.createElement(Divider, null), /* @__PURE__ */ import_react149.default.createElement(Text, null, "If you have", " ", /* @__PURE__ */ import_react149.default.createElement(Link, {
+    }, "Example with otel-cli"), /* @__PURE__ */ import_react146.default.createElement(Divider, null), /* @__PURE__ */ import_react146.default.createElement(Text, null, "If you have", " ", /* @__PURE__ */ import_react146.default.createElement(Link, {
       color: "teal.400",
       href: "https://github.com/equinix-labs/otel-cli",
       isExternal: true
-    }, "otel-cli"), " ", "installed, you can send some example data with the following script."), /* @__PURE__ */ import_react149.default.createElement(Flex, {
+    }, "otel-cli"), " ", "installed, you can send some example data with the following script."), /* @__PURE__ */ import_react146.default.createElement(Flex, {
       backgroundColor: codeBackgroundColour,
       padding: 2
-    }, /* @__PURE__ */ import_react149.default.createElement(Code, {
+    }, /* @__PURE__ */ import_react146.default.createElement(Code, {
       backgroundColor: "transparent",
       display: "block",
       whiteSpace: "pre",
@@ -51933,18 +51893,18 @@ export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318
 # use otel-cli to generate spans!
 otel-cli exec --service my-service --name "curl google" curl https://google.com
 `
-    })))), /* @__PURE__ */ import_react149.default.createElement(CardFooter, {
+    })))), /* @__PURE__ */ import_react146.default.createElement(CardFooter, {
       alignItems: "center"
-    }, /* @__PURE__ */ import_react149.default.createElement(Text, null, "Made with", " ", /* @__PURE__ */ import_react149.default.createElement(Image2, {
+    }, /* @__PURE__ */ import_react146.default.createElement(Text, null, "Made with", " ", /* @__PURE__ */ import_react146.default.createElement(Image2, {
       src: "assets/images/axolotl.svg",
       alt: "axolotl emoji",
       display: "inline",
       width: "30px"
-    }), " ", "by", " ", /* @__PURE__ */ import_react149.default.createElement(Link, {
+    }), " ", "by", " ", /* @__PURE__ */ import_react146.default.createElement(Link, {
       color: "teal.500",
       href: "https://github.com/CtrlSpice",
       isExternal: true
-    }, "Mila Ardath"), ", with Artwork by", " ", /* @__PURE__ */ import_react149.default.createElement(Link, {
+    }, "Mila Ardath"), ", with Artwork by", " ", /* @__PURE__ */ import_react146.default.createElement(Link, {
       color: "teal.500",
       href: "https://cbatesonart.artstation.com/",
       isExternal: true
@@ -52012,25 +51972,25 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
   function MainView() {
     let { summaries } = useLoaderData();
     let [isFullWidth, setFullWidth] = useBoolean(summaries.length > 0);
-    let [sidebarData, setSidebarData] = (0, import_react151.useState)(initSidebarData(summaries));
+    let [sidebarData, setSidebarData] = (0, import_react148.useState)(initSidebarData(summaries));
     if (!summaries.length) {
-      return /* @__PURE__ */ import_react151.default.createElement(Flex, {
+      return /* @__PURE__ */ import_react148.default.createElement(Flex, {
         height: "100vh"
-      }, /* @__PURE__ */ import_react151.default.createElement(Sidebar, {
+      }, /* @__PURE__ */ import_react148.default.createElement(Sidebar, {
         isFullWidth,
         toggleSidebarWidth: setFullWidth.toggle,
         summaries: [],
         numNewTraces: 0
-      }), /* @__PURE__ */ import_react151.default.createElement(EmptyStateView, null));
+      }), /* @__PURE__ */ import_react148.default.createElement(EmptyStateView, null));
     }
-    return /* @__PURE__ */ import_react151.default.createElement(Flex, {
+    return /* @__PURE__ */ import_react148.default.createElement(Flex, {
       height: "100vh"
-    }, /* @__PURE__ */ import_react151.default.createElement(Sidebar, {
+    }, /* @__PURE__ */ import_react148.default.createElement(Sidebar, {
       isFullWidth,
       toggleSidebarWidth: setFullWidth.toggle,
       summaries: sidebarData.summaries,
       numNewTraces: sidebarData.numNewTelemetry
-    }), /* @__PURE__ */ import_react151.default.createElement(Outlet, null));
+    }), /* @__PURE__ */ import_react148.default.createElement(Outlet, null));
   }
   function initSidebarData(summaries) {
     return {
@@ -52070,29 +52030,29 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
   }
 
   // app/routes/trace-view.tsx
-  var import_react177 = __toESM(require_react());
+  var import_react175 = __toESM(require_react());
 
   // app/components/header-view/header.tsx
-  var import_react153 = __toESM(require_react());
+  var import_react150 = __toESM(require_react());
   function Header(props) {
-    return /* @__PURE__ */ import_react153.default.createElement(Flex, {
+    return /* @__PURE__ */ import_react150.default.createElement(Flex, {
       align: "center",
       height: "100px",
       paddingX: "24px"
-    }, /* @__PURE__ */ import_react153.default.createElement(Text, {
+    }, /* @__PURE__ */ import_react150.default.createElement(Text, {
       fontSize: "lg",
       noOfLines: 1
-    }, "Trace ID: ", /* @__PURE__ */ import_react153.default.createElement("strong", null, props.traceID)));
+    }, "Trace ID: ", /* @__PURE__ */ import_react150.default.createElement("strong", null, props.traceID)));
   }
 
   // app/components/detail-view/trace-detail-view.tsx
-  var import_react167 = __toESM(require_react());
+  var import_react164 = __toESM(require_react());
 
   // app/components/detail-view/fields-panel.tsx
-  var import_react157 = __toESM(require_react());
+  var import_react154 = __toESM(require_react());
 
   // app/components/detail-view/span-field.tsx
-  var import_react155 = __toESM(require_react());
+  var import_react152 = __toESM(require_react());
   function SpanField(props) {
     let { fieldName, fieldValue, hidden } = props;
     let fieldNameColour = useColorModeValue("gray.600", "gray.400");
@@ -52117,20 +52077,20 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
         fieldValue = '""';
         break;
     }
-    return /* @__PURE__ */ import_react155.default.createElement(Box, {
+    return /* @__PURE__ */ import_react152.default.createElement(Box, {
       paddingTop: 2
-    }, /* @__PURE__ */ import_react155.default.createElement("dt", null, /* @__PURE__ */ import_react155.default.createElement(Flex, {
+    }, /* @__PURE__ */ import_react152.default.createElement("dt", null, /* @__PURE__ */ import_react152.default.createElement(Flex, {
       experimental_spaceX: 2
-    }, /* @__PURE__ */ import_react155.default.createElement(Tag, {
+    }, /* @__PURE__ */ import_react152.default.createElement(Tag, {
       size: "sm",
       variant: "outline",
       colorScheme: "cyan"
-    }, /* @__PURE__ */ import_react155.default.createElement(TagLabel, {
+    }, /* @__PURE__ */ import_react152.default.createElement(TagLabel, {
       fontSize: "xs"
-    }, typeOfFieldValue)), /* @__PURE__ */ import_react155.default.createElement(Text, {
+    }, typeOfFieldValue)), /* @__PURE__ */ import_react152.default.createElement(Text, {
       textColor: fieldNameColour,
       fontSize: "sm"
-    }, fieldName))), /* @__PURE__ */ import_react155.default.createElement("dd", null, /* @__PURE__ */ import_react155.default.createElement(Text, {
+    }, fieldName))), /* @__PURE__ */ import_react152.default.createElement("dd", null, /* @__PURE__ */ import_react152.default.createElement(Text, {
       fontSize: "md",
       paddingY: 2
     }, fieldValue)));
@@ -52140,10 +52100,10 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
   function FieldsPanel(props) {
     let { span } = props;
     if (!span) {
-      return /* @__PURE__ */ import_react157.default.createElement(TabPanel, null, /* @__PURE__ */ import_react157.default.createElement("p", null, "Nothing here yet."));
+      return /* @__PURE__ */ import_react154.default.createElement(TabPanel, null, /* @__PURE__ */ import_react154.default.createElement("p", null, "Nothing here yet."));
     }
     let isRoot = span.parentSpanID.length ? false : true;
-    let rootTag = isRoot ? /* @__PURE__ */ import_react157.default.createElement(Tag, {
+    let rootTag = isRoot ? /* @__PURE__ */ import_react154.default.createElement(Tag, {
       marginStart: 2,
       colorScheme: "cyan",
       variant: "subtle"
@@ -52151,104 +52111,104 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
     let durationString = getDurationString(
       getDurationNs(span.startTime, span.endTime)
     );
-    let spanAttributes = Object.entries(span.attributes).map(([key, value]) => /* @__PURE__ */ import_react157.default.createElement("li", {
+    let spanAttributes = Object.entries(span.attributes).map(([key, value]) => /* @__PURE__ */ import_react154.default.createElement("li", {
       key
-    }, /* @__PURE__ */ import_react157.default.createElement(SpanField, {
+    }, /* @__PURE__ */ import_react154.default.createElement(SpanField, {
       fieldName: key,
       fieldValue: value
     })));
     let resourceAttributes = Object.entries(span.resource.attributes).map(
-      ([key, value]) => /* @__PURE__ */ import_react157.default.createElement("li", {
+      ([key, value]) => /* @__PURE__ */ import_react154.default.createElement("li", {
         key
-      }, /* @__PURE__ */ import_react157.default.createElement(SpanField, {
+      }, /* @__PURE__ */ import_react154.default.createElement(SpanField, {
         fieldName: key,
         fieldValue: value
       }))
     );
     let scopeAttributes = Object.entries(span.scope.attributes).map(
-      ([key, value]) => /* @__PURE__ */ import_react157.default.createElement("li", {
+      ([key, value]) => /* @__PURE__ */ import_react154.default.createElement("li", {
         key
-      }, /* @__PURE__ */ import_react157.default.createElement(SpanField, {
+      }, /* @__PURE__ */ import_react154.default.createElement(SpanField, {
         fieldName: key,
         fieldValue: value
       }))
     );
-    return /* @__PURE__ */ import_react157.default.createElement(TabPanel, {
+    return /* @__PURE__ */ import_react154.default.createElement(TabPanel, {
       paddingX: "0px"
-    }, /* @__PURE__ */ import_react157.default.createElement(Accordion, {
+    }, /* @__PURE__ */ import_react154.default.createElement(Accordion, {
       defaultIndex: [0],
       allowMultiple: true
-    }, /* @__PURE__ */ import_react157.default.createElement(AccordionItem, null, /* @__PURE__ */ import_react157.default.createElement(AccordionButton, null, /* @__PURE__ */ import_react157.default.createElement(Box, {
+    }, /* @__PURE__ */ import_react154.default.createElement(AccordionItem, null, /* @__PURE__ */ import_react154.default.createElement(AccordionButton, null, /* @__PURE__ */ import_react154.default.createElement(Box, {
       flex: "1",
       textAlign: "left"
-    }, /* @__PURE__ */ import_react157.default.createElement(Heading, {
+    }, /* @__PURE__ */ import_react154.default.createElement(Heading, {
       lineHeight: "revert",
       size: "sm"
-    }, "Span Data", rootTag)), /* @__PURE__ */ import_react157.default.createElement(AccordionIcon, null)), /* @__PURE__ */ import_react157.default.createElement(AccordionPanel, null, /* @__PURE__ */ import_react157.default.createElement(SpanField, {
+    }, "Span Data", rootTag)), /* @__PURE__ */ import_react154.default.createElement(AccordionIcon, null)), /* @__PURE__ */ import_react154.default.createElement(AccordionPanel, null, /* @__PURE__ */ import_react154.default.createElement(SpanField, {
       fieldName: "name",
       fieldValue: span.name
-    }), /* @__PURE__ */ import_react157.default.createElement(SpanField, {
+    }), /* @__PURE__ */ import_react154.default.createElement(SpanField, {
       fieldName: "kind",
       fieldValue: span.kind
-    }), /* @__PURE__ */ import_react157.default.createElement(SpanField, {
+    }), /* @__PURE__ */ import_react154.default.createElement(SpanField, {
       fieldName: "start time",
       fieldValue: span.startTime
-    }), /* @__PURE__ */ import_react157.default.createElement(SpanField, {
+    }), /* @__PURE__ */ import_react154.default.createElement(SpanField, {
       fieldName: "end time",
       fieldValue: span.endTime
-    }), /* @__PURE__ */ import_react157.default.createElement(SpanField, {
+    }), /* @__PURE__ */ import_react154.default.createElement(SpanField, {
       fieldName: "duration",
       fieldValue: durationString
-    }), /* @__PURE__ */ import_react157.default.createElement(SpanField, {
+    }), /* @__PURE__ */ import_react154.default.createElement(SpanField, {
       fieldName: "status code",
       fieldValue: span.statusCode
-    }), /* @__PURE__ */ import_react157.default.createElement(SpanField, {
+    }), /* @__PURE__ */ import_react154.default.createElement(SpanField, {
       fieldName: "status message",
       fieldValue: span.statusMessage,
       hidden: span.statusCode === "Unset" || span.statusCode === "Ok"
-    }), /* @__PURE__ */ import_react157.default.createElement(SpanField, {
+    }), /* @__PURE__ */ import_react154.default.createElement(SpanField, {
       fieldName: "trace id",
       fieldValue: span.traceID
-    }), /* @__PURE__ */ import_react157.default.createElement(SpanField, {
+    }), /* @__PURE__ */ import_react154.default.createElement(SpanField, {
       fieldName: "parent span id",
       fieldValue: span.parentSpanID,
       hidden: isRoot
-    }), /* @__PURE__ */ import_react157.default.createElement(SpanField, {
+    }), /* @__PURE__ */ import_react154.default.createElement(SpanField, {
       fieldName: "span id",
       fieldValue: span.spanID
-    }), /* @__PURE__ */ import_react157.default.createElement(List, null, spanAttributes), /* @__PURE__ */ import_react157.default.createElement(SpanField, {
+    }), /* @__PURE__ */ import_react154.default.createElement(List, null, spanAttributes), /* @__PURE__ */ import_react154.default.createElement(SpanField, {
       fieldName: "dropped attributes count",
       fieldValue: span.droppedAttributesCount,
       hidden: span.droppedAttributesCount === 0
-    }), /* @__PURE__ */ import_react157.default.createElement(SpanField, {
+    }), /* @__PURE__ */ import_react154.default.createElement(SpanField, {
       fieldName: "dropped events count",
       fieldValue: span.droppedEventsCount,
       hidden: span.droppedEventsCount === 0
-    }), /* @__PURE__ */ import_react157.default.createElement(SpanField, {
+    }), /* @__PURE__ */ import_react154.default.createElement(SpanField, {
       fieldName: "dropped links count",
       fieldValue: span.droppedLinksCount,
       hidden: span.droppedLinksCount === 0
-    }))), /* @__PURE__ */ import_react157.default.createElement(AccordionItem, null, /* @__PURE__ */ import_react157.default.createElement(AccordionButton, null, /* @__PURE__ */ import_react157.default.createElement(Box, {
+    }))), /* @__PURE__ */ import_react154.default.createElement(AccordionItem, null, /* @__PURE__ */ import_react154.default.createElement(AccordionButton, null, /* @__PURE__ */ import_react154.default.createElement(Box, {
       flex: "1",
       textAlign: "left"
-    }, /* @__PURE__ */ import_react157.default.createElement(Heading, {
+    }, /* @__PURE__ */ import_react154.default.createElement(Heading, {
       size: "sm"
-    }, "Resource Data")), /* @__PURE__ */ import_react157.default.createElement(AccordionIcon, null)), /* @__PURE__ */ import_react157.default.createElement(AccordionPanel, null, /* @__PURE__ */ import_react157.default.createElement(List, null, resourceAttributes), /* @__PURE__ */ import_react157.default.createElement(SpanField, {
+    }, "Resource Data")), /* @__PURE__ */ import_react154.default.createElement(AccordionIcon, null)), /* @__PURE__ */ import_react154.default.createElement(AccordionPanel, null, /* @__PURE__ */ import_react154.default.createElement(List, null, resourceAttributes), /* @__PURE__ */ import_react154.default.createElement(SpanField, {
       fieldName: "dropped attributes count",
       fieldValue: span.resource.droppedAttributesCount,
       hidden: span.resource.droppedAttributesCount === 0
-    }))), /* @__PURE__ */ import_react157.default.createElement(AccordionItem, null, /* @__PURE__ */ import_react157.default.createElement(AccordionButton, null, /* @__PURE__ */ import_react157.default.createElement(Box, {
+    }))), /* @__PURE__ */ import_react154.default.createElement(AccordionItem, null, /* @__PURE__ */ import_react154.default.createElement(AccordionButton, null, /* @__PURE__ */ import_react154.default.createElement(Box, {
       flex: "1",
       textAlign: "left"
-    }, /* @__PURE__ */ import_react157.default.createElement(Heading, {
+    }, /* @__PURE__ */ import_react154.default.createElement(Heading, {
       size: "sm"
-    }, "Scope Data")), /* @__PURE__ */ import_react157.default.createElement(AccordionIcon, null)), /* @__PURE__ */ import_react157.default.createElement(AccordionPanel, null, /* @__PURE__ */ import_react157.default.createElement(SpanField, {
+    }, "Scope Data")), /* @__PURE__ */ import_react154.default.createElement(AccordionIcon, null)), /* @__PURE__ */ import_react154.default.createElement(AccordionPanel, null, /* @__PURE__ */ import_react154.default.createElement(SpanField, {
       fieldName: "scope name",
       fieldValue: span.scope.name
-    }), /* @__PURE__ */ import_react157.default.createElement(SpanField, {
+    }), /* @__PURE__ */ import_react154.default.createElement(SpanField, {
       fieldName: "scope version",
       fieldValue: span.scope.version
-    }), /* @__PURE__ */ import_react157.default.createElement(List, null, scopeAttributes), /* @__PURE__ */ import_react157.default.createElement(SpanField, {
+    }), /* @__PURE__ */ import_react154.default.createElement(List, null, scopeAttributes), /* @__PURE__ */ import_react154.default.createElement(SpanField, {
       fieldName: "dropped attributes count",
       fieldValue: span.scope.droppedAttributesCount,
       hidden: span.scope.droppedAttributesCount === 0
@@ -52256,28 +52216,28 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
   }
 
   // app/components/detail-view/events-panel.tsx
-  var import_react159 = __toESM(require_react());
+  var import_react156 = __toESM(require_react());
   function EventItem(props) {
     let { event, spanStartTime } = props;
     let timeSinceSpanStart = getDurationNs(spanStartTime, event.timestamp);
     let durationString = getDurationString(timeSinceSpanStart);
-    let eventAttributes = Object.entries(event.attributes).map(([key, value]) => /* @__PURE__ */ import_react159.default.createElement("li", {
+    let eventAttributes = Object.entries(event.attributes).map(([key, value]) => /* @__PURE__ */ import_react156.default.createElement("li", {
       key: key + value?.toString()
-    }, /* @__PURE__ */ import_react159.default.createElement(SpanField, {
+    }, /* @__PURE__ */ import_react156.default.createElement(SpanField, {
       fieldName: key,
       fieldValue: value
     })));
-    return /* @__PURE__ */ import_react159.default.createElement(AccordionItem, null, /* @__PURE__ */ import_react159.default.createElement(AccordionButton, null, /* @__PURE__ */ import_react159.default.createElement(Box, {
+    return /* @__PURE__ */ import_react156.default.createElement(AccordionItem, null, /* @__PURE__ */ import_react156.default.createElement(AccordionButton, null, /* @__PURE__ */ import_react156.default.createElement(Box, {
       flex: "1",
       textAlign: "left"
-    }, /* @__PURE__ */ import_react159.default.createElement(Heading, {
+    }, /* @__PURE__ */ import_react156.default.createElement(Heading, {
       size: "sm"
-    }, event.name), /* @__PURE__ */ import_react159.default.createElement(Text, {
+    }, event.name), /* @__PURE__ */ import_react156.default.createElement(Text, {
       fontSize: "xs"
-    }, durationString, " since span start")), /* @__PURE__ */ import_react159.default.createElement(AccordionIcon, null)), /* @__PURE__ */ import_react159.default.createElement(AccordionPanel, null, /* @__PURE__ */ import_react159.default.createElement(SpanField, {
+    }, durationString, " since span start")), /* @__PURE__ */ import_react156.default.createElement(AccordionIcon, null)), /* @__PURE__ */ import_react156.default.createElement(AccordionPanel, null, /* @__PURE__ */ import_react156.default.createElement(SpanField, {
       fieldName: "timestamp",
       fieldValue: event.timestamp
-    }), /* @__PURE__ */ import_react159.default.createElement(List, null, eventAttributes), /* @__PURE__ */ import_react159.default.createElement(SpanField, {
+    }), /* @__PURE__ */ import_react156.default.createElement(List, null, eventAttributes), /* @__PURE__ */ import_react156.default.createElement(SpanField, {
       fieldName: "dropped attributes count",
       fieldValue: event.droppedAttributesCount,
       hidden: !event.droppedAttributesCount
@@ -52288,30 +52248,30 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
     if (!events) {
       return null;
     }
-    let eventItemList = events.map((event) => /* @__PURE__ */ import_react159.default.createElement("li", {
+    let eventItemList = events.map((event) => /* @__PURE__ */ import_react156.default.createElement("li", {
       key: event.name + event.timestamp
-    }, /* @__PURE__ */ import_react159.default.createElement(EventItem, {
+    }, /* @__PURE__ */ import_react156.default.createElement(EventItem, {
       event,
       spanStartTime
     })));
-    return /* @__PURE__ */ import_react159.default.createElement(TabPanel, {
+    return /* @__PURE__ */ import_react156.default.createElement(TabPanel, {
       paddingX: "0px"
-    }, /* @__PURE__ */ import_react159.default.createElement(Accordion, {
+    }, /* @__PURE__ */ import_react156.default.createElement(Accordion, {
       allowMultiple: true
-    }, /* @__PURE__ */ import_react159.default.createElement(List, null, eventItemList)));
+    }, /* @__PURE__ */ import_react156.default.createElement(List, null, eventItemList)));
   }
 
   // app/components/detail-view/links-panel.tsx
-  var import_react165 = __toESM(require_react());
-
-  // app/components/alerts/under-construction.tsx
-  var import_react163 = __toESM(require_react());
-
-  // node_modules/react-icons/lib/esm/iconBase.js
   var import_react162 = __toESM(require_react());
 
+  // app/components/alerts/under-construction.tsx
+  var import_react160 = __toESM(require_react());
+
+  // node_modules/react-icons/lib/esm/iconBase.js
+  var import_react159 = __toESM(require_react());
+
   // node_modules/react-icons/lib/esm/iconContext.js
-  var import_react161 = __toESM(require_react());
+  var import_react158 = __toESM(require_react());
   var DefaultContext = {
     color: void 0,
     size: void 0,
@@ -52319,7 +52279,7 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
     style: void 0,
     attr: void 0
   };
-  var IconContext = import_react161.default.createContext && import_react161.default.createContext(DefaultContext);
+  var IconContext = import_react158.default.createContext && import_react158.default.createContext(DefaultContext);
 
   // node_modules/react-icons/lib/esm/iconBase.js
   var __assign2 = function() {
@@ -52348,14 +52308,14 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
   };
   function Tree2Element(tree) {
     return tree && tree.map(function(node, i) {
-      return import_react162.default.createElement(node.tag, __assign2({
+      return import_react159.default.createElement(node.tag, __assign2({
         key: i
       }, node.attr), Tree2Element(node.child));
     });
   }
   function GenIcon(data) {
     return function(props) {
-      return import_react162.default.createElement(IconBase, __assign2({
+      return import_react159.default.createElement(IconBase, __assign2({
         attr: __assign2({}, data.attr)
       }, props), Tree2Element(data.child));
     };
@@ -52369,7 +52329,7 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
         className = conf.className;
       if (props.className)
         className = (className ? className + " " : "") + props.className;
-      return import_react162.default.createElement("svg", __assign2({
+      return import_react159.default.createElement("svg", __assign2({
         stroke: "currentColor",
         fill: "currentColor",
         strokeWidth: "0"
@@ -52381,9 +52341,9 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
         height: computedSize,
         width: computedSize,
         xmlns: "http://www.w3.org/2000/svg"
-      }), title && import_react162.default.createElement("title", null, title), props.children);
+      }), title && import_react159.default.createElement("title", null, title), props.children);
     };
-    return IconContext !== void 0 ? import_react162.default.createElement(IconContext.Consumer, null, function(conf) {
+    return IconContext !== void 0 ? import_react159.default.createElement(IconContext.Consumer, null, function(conf) {
       return elem(conf);
     }) : elem(DefaultContext);
   }
@@ -52395,39 +52355,39 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
 
   // app/components/alerts/under-construction.tsx
   function UnderConstructionAlert() {
-    return /* @__PURE__ */ import_react163.default.createElement(Alert, {
+    return /* @__PURE__ */ import_react160.default.createElement(Alert, {
       status: "warning",
       variant: "subtle",
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
       textAlign: "center"
-    }, /* @__PURE__ */ import_react163.default.createElement(AlertIcon, {
+    }, /* @__PURE__ */ import_react160.default.createElement(AlertIcon, {
       as: MdConstruction,
       boxSize: "32px"
-    }), /* @__PURE__ */ import_react163.default.createElement(AlertTitle, null, "This section is under construction."), /* @__PURE__ */ import_react163.default.createElement(AlertDescription, null, "More features coming soon!"));
+    }), /* @__PURE__ */ import_react160.default.createElement(AlertTitle, null, "This section is under construction."), /* @__PURE__ */ import_react160.default.createElement(AlertDescription, null, "More features coming soon!"));
   }
 
   // app/components/detail-view/links-panel.tsx
   function LinkItem(props) {
     let { link } = props;
-    let linkAttributes = Object.entries(link.attributes).map(([key, value]) => /* @__PURE__ */ import_react165.default.createElement("li", {
+    let linkAttributes = Object.entries(link.attributes).map(([key, value]) => /* @__PURE__ */ import_react162.default.createElement("li", {
       key: key + value?.toString()
-    }, /* @__PURE__ */ import_react165.default.createElement(SpanField, {
+    }, /* @__PURE__ */ import_react162.default.createElement(SpanField, {
       fieldName: key,
       fieldValue: value
     })));
-    return /* @__PURE__ */ import_react165.default.createElement(AccordionItem, null, /* @__PURE__ */ import_react165.default.createElement(AccordionButton, null, /* @__PURE__ */ import_react165.default.createElement(Box, {
+    return /* @__PURE__ */ import_react162.default.createElement(AccordionItem, null, /* @__PURE__ */ import_react162.default.createElement(AccordionButton, null, /* @__PURE__ */ import_react162.default.createElement(Box, {
       flex: "1",
       textAlign: "left"
-    }, /* @__PURE__ */ import_react165.default.createElement(Text, {
+    }, /* @__PURE__ */ import_react162.default.createElement(Text, {
       fontSize: "sm"
-    }, "Trace ID: ", /* @__PURE__ */ import_react165.default.createElement("strong", null, link.traceID)), /* @__PURE__ */ import_react165.default.createElement(Text, {
+    }, "Trace ID: ", /* @__PURE__ */ import_react162.default.createElement("strong", null, link.traceID)), /* @__PURE__ */ import_react162.default.createElement(Text, {
       fontSize: "sm"
-    }, "Span ID: ", /* @__PURE__ */ import_react165.default.createElement("strong", null, link.spanID))), /* @__PURE__ */ import_react165.default.createElement(AccordionIcon, null)), /* @__PURE__ */ import_react165.default.createElement(AccordionPanel, null, /* @__PURE__ */ import_react165.default.createElement(SpanField, {
+    }, "Span ID: ", /* @__PURE__ */ import_react162.default.createElement("strong", null, link.spanID))), /* @__PURE__ */ import_react162.default.createElement(AccordionIcon, null)), /* @__PURE__ */ import_react162.default.createElement(AccordionPanel, null, /* @__PURE__ */ import_react162.default.createElement(SpanField, {
       fieldName: "trace state",
       fieldValue: link.traceState
-    }), /* @__PURE__ */ import_react165.default.createElement(List, null, linkAttributes), /* @__PURE__ */ import_react165.default.createElement(SpanField, {
+    }), /* @__PURE__ */ import_react162.default.createElement(List, null, linkAttributes), /* @__PURE__ */ import_react162.default.createElement(SpanField, {
       fieldName: "dropped attributes count",
       fieldValue: link.droppedAttributesCount
     })));
@@ -52437,61 +52397,61 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
     if (!links) {
       return null;
     }
-    let linkItemList = links.map((link) => /* @__PURE__ */ import_react165.default.createElement("li", {
+    let linkItemList = links.map((link) => /* @__PURE__ */ import_react162.default.createElement("li", {
       key: link.spanID
-    }, /* @__PURE__ */ import_react165.default.createElement(LinkItem, {
+    }, /* @__PURE__ */ import_react162.default.createElement(LinkItem, {
       link
     })));
-    return /* @__PURE__ */ import_react165.default.createElement(TabPanel, {
+    return /* @__PURE__ */ import_react162.default.createElement(TabPanel, {
       paddingX: "0px"
-    }, /* @__PURE__ */ import_react165.default.createElement(UnderConstructionAlert, null), /* @__PURE__ */ import_react165.default.createElement(Accordion, {
+    }, /* @__PURE__ */ import_react162.default.createElement(UnderConstructionAlert, null), /* @__PURE__ */ import_react162.default.createElement(Accordion, {
       allowMultiple: true
-    }, /* @__PURE__ */ import_react165.default.createElement(List, null, linkItemList)));
+    }, /* @__PURE__ */ import_react162.default.createElement(List, null, linkItemList)));
   }
 
   // app/components/detail-view/trace-detail-view.tsx
   function TraceDetailView(props) {
     let { span } = props;
     if (!span) {
-      return /* @__PURE__ */ import_react167.default.createElement("div", null);
+      return /* @__PURE__ */ import_react164.default.createElement("div", null);
     }
     let numEvents = span.events.length;
     let numLinks = span.links.length;
-    return /* @__PURE__ */ import_react167.default.createElement(Flex, {
+    return /* @__PURE__ */ import_react164.default.createElement(Flex, {
       grow: "0",
       shrink: "1",
       basis: "350px",
       height: "100vh",
       paddingTop: "30px",
       overflowY: "scroll"
-    }, /* @__PURE__ */ import_react167.default.createElement(Tabs, {
+    }, /* @__PURE__ */ import_react164.default.createElement(Tabs, {
       colorScheme: "pink",
       margin: 3,
       size: "sm",
       variant: "soft-rounded",
       width: "100vw"
-    }, /* @__PURE__ */ import_react167.default.createElement(TabList, null, /* @__PURE__ */ import_react167.default.createElement(Tab, null, "Fields"), /* @__PURE__ */ import_react167.default.createElement(Tab, {
+    }, /* @__PURE__ */ import_react164.default.createElement(TabList, null, /* @__PURE__ */ import_react164.default.createElement(Tab, null, "Fields"), /* @__PURE__ */ import_react164.default.createElement(Tab, {
       isDisabled: numEvents === 0
-    }, "Events(", numEvents, ")"), /* @__PURE__ */ import_react167.default.createElement(Tab, {
+    }, "Events(", numEvents, ")"), /* @__PURE__ */ import_react164.default.createElement(Tab, {
       isDisabled: numLinks === 0
-    }, "Links(", numLinks, ")")), /* @__PURE__ */ import_react167.default.createElement(TabPanels, null, /* @__PURE__ */ import_react167.default.createElement(FieldsPanel, {
+    }, "Links(", numLinks, ")")), /* @__PURE__ */ import_react164.default.createElement(TabPanels, null, /* @__PURE__ */ import_react164.default.createElement(FieldsPanel, {
       span
-    }), /* @__PURE__ */ import_react167.default.createElement(EventsPanel, {
+    }), /* @__PURE__ */ import_react164.default.createElement(EventsPanel, {
       events: span.events,
       spanStartTime: span.startTime
-    }), /* @__PURE__ */ import_react167.default.createElement(LinksPanel, {
+    }), /* @__PURE__ */ import_react164.default.createElement(LinksPanel, {
       links: span.links
     }))));
   }
 
   // app/components/waterfall-view/waterfall-view.tsx
-  var import_react175 = __toESM(require_react());
+  var import_react173 = __toESM(require_react());
 
   // app/components/waterfall-view/waterfall-row.tsx
-  var import_react171 = __toESM(require_react());
+  var import_react168 = __toESM(require_react());
 
   // app/components/waterfall-view/duration-bar.tsx
-  var import_react169 = __toESM(require_react());
+  var import_react166 = __toESM(require_react());
   function EventDotsList(props) {
     let { events, spanStartTimeNs, spanEndTimeNs } = props;
     let eventDotsList = events.map((eventData) => {
@@ -52501,13 +52461,13 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
       let eventOffsetPercent = Math.floor(
         (eventTimeNs - spanStartTimeNs) / spanDurationNS * 100
       );
-      return /* @__PURE__ */ import_react169.default.createElement("li", {
+      return /* @__PURE__ */ import_react166.default.createElement("li", {
         key: `${eventName}-${eventData.timestamp}`
-      }, /* @__PURE__ */ import_react169.default.createElement(Tooltip, {
+      }, /* @__PURE__ */ import_react166.default.createElement(Tooltip, {
         hasArrow: true,
         label: eventName,
         placement: "top"
-      }, /* @__PURE__ */ import_react169.default.createElement(Circle, {
+      }, /* @__PURE__ */ import_react166.default.createElement(Circle, {
         size: "18px",
         bg: "whiteAlpha.400",
         border: "solid 1px",
@@ -52518,10 +52478,10 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
         transform: "translate(-50%)"
       })));
     });
-    return /* @__PURE__ */ import_react169.default.createElement(List, null, eventDotsList);
+    return /* @__PURE__ */ import_react166.default.createElement(List, null, eventDotsList);
   }
   function DurationBar(props) {
-    const ref = (0, import_react169.useRef)(null);
+    const ref = (0, import_react166.useRef)(null);
     const size3 = useSize(ref);
     const labelWidth = 80;
     let durationBarColour = useColorModeValue("cyan.800", "cyan.700");
@@ -52545,12 +52505,12 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
       labelOffset = `${Math.floor(-labelWidth)}px`;
     }
     let label = getDurationString(spanEndTimeNs - spanStartTimeNs);
-    return /* @__PURE__ */ import_react169.default.createElement(Flex, {
+    return /* @__PURE__ */ import_react166.default.createElement(Flex, {
       border: "0",
       marginX: 2,
       marginY: "16px",
       width: "100%"
-    }, /* @__PURE__ */ import_react169.default.createElement(Box, {
+    }, /* @__PURE__ */ import_react166.default.createElement(Box, {
       bgColor: durationBarColour,
       borderRadius: "md",
       overflow: "visible",
@@ -52559,18 +52519,18 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
       width: `${barWidthPercent}%`,
       minWidth: "2px",
       ref
-    }, /* @__PURE__ */ import_react169.default.createElement(Flex, {
+    }, /* @__PURE__ */ import_react166.default.createElement(Flex, {
       position: "absolute",
       width: `${labelWidth}px`,
       left: labelOffset,
       justifyContent: "center"
-    }, /* @__PURE__ */ import_react169.default.createElement(Text, {
+    }, /* @__PURE__ */ import_react166.default.createElement(Text, {
       fontSize: "xs",
       fontWeight: "700",
       paddingLeft: 2,
       color: labelTextColour,
       whiteSpace: "nowrap"
-    }, label)), /* @__PURE__ */ import_react169.default.createElement(EventDotsList, {
+    }, label)), /* @__PURE__ */ import_react166.default.createElement(EventDotsList, {
       events: props.spanData.events,
       spanStartTimeNs,
       spanEndTimeNs
@@ -52600,52 +52560,52 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
       }
       let nameLabel = spanData.name.replaceAll("/", "/\u200B").replaceAll("-", "-\u200B").replaceAll(".", ".\u200B");
       let resourceLabel = spanData.resource.attributes["service.name"];
-      return /* @__PURE__ */ import_react171.default.createElement(Flex, {
+      return /* @__PURE__ */ import_react168.default.createElement(Flex, {
         style,
         bgColor: backgroundColour,
         paddingLeft: `${paddingLeft}px`,
         onClick: () => setSelectedSpanID(spanID)
-      }, /* @__PURE__ */ import_react171.default.createElement(Flex, {
+      }, /* @__PURE__ */ import_react168.default.createElement(Flex, {
         width: spanNameColumnWidth - paddingLeft,
         alignItems: "center",
         flexGrow: "1",
         flexShrink: "0"
-      }, /* @__PURE__ */ import_react171.default.createElement(Text, {
+      }, /* @__PURE__ */ import_react168.default.createElement(Text, {
         paddingX: 2,
         noOfLines: 2,
         fontSize: "sm"
-      }, nameLabel)), /* @__PURE__ */ import_react171.default.createElement(Flex, {
+      }, nameLabel)), /* @__PURE__ */ import_react168.default.createElement(Flex, {
         width: serviceNameColumnWidth,
         alignItems: "center",
         flexGrow: "1",
         flexShrink: "0"
-      }, /* @__PURE__ */ import_react171.default.createElement(Text, {
+      }, /* @__PURE__ */ import_react168.default.createElement(Text, {
         paddingX: 2,
         fontSize: "sm"
-      }, resourceLabel)), /* @__PURE__ */ import_react171.default.createElement(DurationBar, {
+      }, resourceLabel)), /* @__PURE__ */ import_react168.default.createElement(DurationBar, {
         spanData,
         traceTimeAttributes,
         spanStartTimestamp: spanData.startTime,
         spanEndTimestamp: spanData.endTime
       }));
     }
-    return /* @__PURE__ */ import_react171.default.createElement(Flex, {
+    return /* @__PURE__ */ import_react168.default.createElement(Flex, {
       style,
       alignItems: "center",
       bgColor: backgroundColour,
       paddingStart: 2,
       experimental_spaceX: 2
-    }, /* @__PURE__ */ import_react171.default.createElement(WarningTwoIcon, {
+    }, /* @__PURE__ */ import_react168.default.createElement(WarningTwoIcon, {
       color: "orange.500"
-    }), /* @__PURE__ */ import_react171.default.createElement(Text, {
+    }), /* @__PURE__ */ import_react168.default.createElement(Text, {
       fontSize: "sm"
     }, `Missing Span [Span ID:${spanID}]`));
   }
 
   // app/components/waterfall-view/header-row.tsx
-  var import_react173 = __toESM(require_react());
+  var import_react170 = __toESM(require_react());
   function DurationIndicator(props) {
-    let ref = (0, import_react173.useRef)(null);
+    let ref = (0, import_react170.useRef)(null);
     let size3 = useSize(ref);
     let availableWidth = size3 ? size3.width : 0;
     let numSections = 1;
@@ -52674,25 +52634,25 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
     let sectionWidth = availableWidth / numSections;
     let durationSections = Array(numSections - 1).fill(null).map((_, i) => {
       let sectionLabel = `${+(sectionDuration * i).toFixed(3)}${timeUnit}`;
-      return /* @__PURE__ */ import_react173.default.createElement(ListItem, {
+      return /* @__PURE__ */ import_react170.default.createElement(ListItem, {
         key: i,
         float: "left"
-      }, /* @__PURE__ */ import_react173.default.createElement(Text, {
+      }, /* @__PURE__ */ import_react170.default.createElement(Text, {
         fontSize: "x-small",
         width: sectionWidth
       }, sectionLabel));
     });
-    let lastDurationLabel = /* @__PURE__ */ import_react173.default.createElement(Text, {
+    let lastDurationLabel = /* @__PURE__ */ import_react170.default.createElement(Text, {
       fontSize: "x-small"
     }, `${+traceDuration.toFixed(3)}${timeUnit}`);
-    return /* @__PURE__ */ import_react173.default.createElement(Flex, {
+    return /* @__PURE__ */ import_react170.default.createElement(Flex, {
       alignItems: "center",
       height: "100%",
       "flex-direction": "row",
       flex: "1 1 auto",
       marginX: 2,
       ref
-    }, /* @__PURE__ */ import_react173.default.createElement(List, null, durationSections), /* @__PURE__ */ import_react173.default.createElement(Spacer, null), lastDurationLabel);
+    }, /* @__PURE__ */ import_react170.default.createElement(List, null, durationSections), /* @__PURE__ */ import_react170.default.createElement(Spacer, null), lastDurationLabel);
   }
   function HeaderRow(props) {
     let {
@@ -52701,29 +52661,61 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
       serviceNameColumnWidth,
       traceDuration
     } = props;
-    return /* @__PURE__ */ import_react173.default.createElement(Flex, {
+    return /* @__PURE__ */ import_react170.default.createElement(Flex, {
       height: `${headerRowHeight}px`
-    }, /* @__PURE__ */ import_react173.default.createElement(Flex, {
+    }, /* @__PURE__ */ import_react170.default.createElement(Flex, {
       width: spanNameColumnWidth,
       alignItems: "center"
-    }, /* @__PURE__ */ import_react173.default.createElement(Heading, {
+    }, /* @__PURE__ */ import_react170.default.createElement(Heading, {
       paddingX: 2,
       size: "sm"
-    }, "name")), /* @__PURE__ */ import_react173.default.createElement(Flex, {
+    }, "name")), /* @__PURE__ */ import_react170.default.createElement(Flex, {
       width: serviceNameColumnWidth,
       alignItems: "center"
-    }, /* @__PURE__ */ import_react173.default.createElement(Heading, {
+    }, /* @__PURE__ */ import_react170.default.createElement(Heading, {
       paddingX: 1,
       size: "sm"
-    }, "service.name")), /* @__PURE__ */ import_react173.default.createElement(DurationIndicator, {
+    }, "service.name")), /* @__PURE__ */ import_react170.default.createElement(DurationIndicator, {
       traceDuration
     }));
   }
 
+  // app/utils/use-key-press.ts
+  var import_react172 = __toESM(require_react());
+  var useKeyPress = (targetKeys) => {
+    let [keyPressed, setKeyPressed] = (0, import_react172.useState)(false);
+    (0, import_react172.useEffect)(
+      () => {
+        const downHandler = (event) => {
+          if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) {
+            return;
+          }
+          event.preventDefault();
+          if (targetKeys.includes(event.key)) {
+            setKeyPressed(true);
+          }
+        };
+        const upHandler = (event) => {
+          if (targetKeys.includes(event.key)) {
+            setKeyPressed(false);
+          }
+        };
+        window.addEventListener("keydown", downHandler);
+        window.addEventListener("keyup", upHandler);
+        return () => {
+          window.removeEventListener("keydown", downHandler);
+          window.removeEventListener("keyup", upHandler);
+        };
+      },
+      [targetKeys, setKeyPressed]
+    );
+    return keyPressed;
+  };
+
   // app/components/waterfall-view/waterfall-view.tsx
   function WaterfallView(props) {
-    let containerRef = (0, import_react175.useRef)(null);
-    let spanListRef = import_react175.default.createRef();
+    let containerRef = (0, import_react173.useRef)(null);
+    let spanListRef = import_react173.default.createRef();
     const size3 = useSize(containerRef);
     const waterfallItemHeight = 50;
     const headerRowHeight = 30;
@@ -52738,7 +52730,7 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
     let firstSelectableIndex = orderedSpans.findIndex(
       (span) => span.status === "present" /* present */
     );
-    (0, import_react175.useEffect)(() => {
+    (0, import_react173.useEffect)(() => {
       if (prevSpanKeyPressed) {
         if (selectedIndex > firstSelectableIndex) {
           do {
@@ -52749,7 +52741,7 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
         }
       }
     }, [prevSpanKeyPressed]);
-    (0, import_react175.useEffect)(() => {
+    (0, import_react173.useEffect)(() => {
       if (nextSpanKeyPressed) {
         if (selectedIndex < orderedSpans.length - 1) {
           do {
@@ -52768,17 +52760,17 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
       selectedSpanID,
       setSelectedSpanID
     };
-    return /* @__PURE__ */ import_react175.default.createElement(Flex, {
+    return /* @__PURE__ */ import_react173.default.createElement(Flex, {
       direction: "column",
       ref: containerRef,
       height: "100%",
       onCopy: stripZeroWidthSpacesOnCopyCallback
-    }, /* @__PURE__ */ import_react175.default.createElement(HeaderRow, {
+    }, /* @__PURE__ */ import_react173.default.createElement(HeaderRow, {
       headerRowHeight,
       spanNameColumnWidth,
       serviceNameColumnWidth,
       traceDuration: traceTimeAttributes.traceDurationNS
-    }), /* @__PURE__ */ import_react175.default.createElement(FixedSizeList, {
+    }), /* @__PURE__ */ import_react173.default.createElement(FixedSizeList, {
       className: "List",
       height: size3 ? size3.height - headerRowHeight : 0,
       itemData: rowData,
@@ -52871,7 +52863,7 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
     let traceTimeAttributes = calculateTraceTiming(traceData.spans);
     let spanTree = arrayToTree(traceData.spans);
     let orderedSpans = orderSpans(spanTree);
-    let [selectedSpanID, setSelectedSpanID] = import_react177.default.useState(() => {
+    let [selectedSpanID, setSelectedSpanID] = import_react175.default.useState(() => {
       if (!orderedSpans.length || orderedSpans[0].status === "missing" /* missing */ && orderedSpans.length < 2) {
         throw new Error("Number of spans cannot be zero");
       }
@@ -52880,7 +52872,7 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
       }
       return orderedSpans[0].metadata.spanID;
     });
-    import_react177.default.useEffect(() => {
+    import_react175.default.useEffect(() => {
       setSelectedSpanID(
         orderedSpans[0].status === "present" /* present */ ? orderedSpans[0].metadata.spanID : orderedSpans[1].metadata.spanID
       );
@@ -52888,7 +52880,7 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
     let selectedSpan = traceData.spans.find(
       (span) => span.spanID === selectedSpanID
     );
-    return /* @__PURE__ */ import_react177.default.createElement(Grid, {
+    return /* @__PURE__ */ import_react175.default.createElement(Grid, {
       templateAreas: `"header detail"
                        "main detail"`,
       gridTemplateColumns: "1fr 350px",
@@ -52896,21 +52888,21 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
       gap: "0",
       height: "100vh",
       width: "100vw"
-    }, /* @__PURE__ */ import_react177.default.createElement(GridItem, {
+    }, /* @__PURE__ */ import_react175.default.createElement(GridItem, {
       area: "header"
-    }, /* @__PURE__ */ import_react177.default.createElement(Header, {
+    }, /* @__PURE__ */ import_react175.default.createElement(Header, {
       traceID: traceData.traceID
-    })), /* @__PURE__ */ import_react177.default.createElement(GridItem, {
+    })), /* @__PURE__ */ import_react175.default.createElement(GridItem, {
       area: "main",
       marginLeft: "20px"
-    }, /* @__PURE__ */ import_react177.default.createElement(WaterfallView, {
+    }, /* @__PURE__ */ import_react175.default.createElement(WaterfallView, {
       orderedSpans,
       traceTimeAttributes,
       selectedSpanID,
       setSelectedSpanID
-    })), /* @__PURE__ */ import_react177.default.createElement(GridItem, {
+    })), /* @__PURE__ */ import_react175.default.createElement(GridItem, {
       area: "detail"
-    }, /* @__PURE__ */ import_react177.default.createElement(TraceDetailView, {
+    }, /* @__PURE__ */ import_react175.default.createElement(TraceDetailView, {
       span: selectedSpan
     })));
   }
@@ -52958,27 +52950,27 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
   }
 
   // app/routes/telemetry-view.tsx
-  var import_react183 = __toESM(require_react());
-
-  // app/components/log-view/log-waterfall-view.tsx
   var import_react181 = __toESM(require_react());
 
-  // app/components/log-view/log-header-row.tsx
+  // app/components/log-view/log-waterfall-view.tsx
   var import_react179 = __toESM(require_react());
+
+  // app/components/log-view/log-header-row.tsx
+  var import_react177 = __toESM(require_react());
   function LogHeaderRow(props) {
     let { headerRowHeight, nameColumnWidth, serviceNameColumnWidth } = props;
-    return /* @__PURE__ */ import_react179.default.createElement(Flex, {
+    return /* @__PURE__ */ import_react177.default.createElement(Flex, {
       height: `${headerRowHeight}px`
-    }, /* @__PURE__ */ import_react179.default.createElement(Flex, {
+    }, /* @__PURE__ */ import_react177.default.createElement(Flex, {
       width: nameColumnWidth,
       alignItems: "center"
-    }, /* @__PURE__ */ import_react179.default.createElement(Heading, {
+    }, /* @__PURE__ */ import_react177.default.createElement(Heading, {
       paddingX: 2,
       size: "sm"
-    }, "name")), /* @__PURE__ */ import_react179.default.createElement(Flex, {
+    }, "name")), /* @__PURE__ */ import_react177.default.createElement(Flex, {
       width: serviceNameColumnWidth,
       alignItems: "center"
-    }, /* @__PURE__ */ import_react179.default.createElement(Heading, {
+    }, /* @__PURE__ */ import_react177.default.createElement(Heading, {
       paddingX: 1,
       size: "sm"
     }, "service.name")));
@@ -52986,7 +52978,7 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
 
   // app/components/log-view/log-waterfall-view.tsx
   function LogWaterfallView(props) {
-    let containerRef = (0, import_react181.useRef)(null);
+    let containerRef = (0, import_react179.useRef)(null);
     const size3 = useSize(containerRef);
     let {
       body,
@@ -53000,15 +52992,15 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
     const headerRowHeight = 30;
     const nameColumnWidth = 300;
     const serviceNameColumnWidth = 200;
-    return /* @__PURE__ */ import_react181.default.createElement(Flex, {
+    return /* @__PURE__ */ import_react179.default.createElement(Flex, {
       direction: "column",
       ref: containerRef,
       height: "100%"
-    }, /* @__PURE__ */ import_react181.default.createElement(LogHeaderRow, {
+    }, /* @__PURE__ */ import_react179.default.createElement(LogHeaderRow, {
       headerRowHeight,
       nameColumnWidth,
       serviceNameColumnWidth
-    }), /* @__PURE__ */ import_react181.default.createElement("div", null, "log body ", body), /* @__PURE__ */ import_react181.default.createElement("div", null, "log severity numnber: ", severityNumber), /* @__PURE__ */ import_react181.default.createElement("div", null, "log severity text: ", severityText), /* @__PURE__ */ import_react181.default.createElement("div", null, "log droppedAttributeCount: ", severityText), /* @__PURE__ */ import_react181.default.createElement("div", null, "log timestamp ", timestamp), /* @__PURE__ */ import_react181.default.createElement("div", null, "log observed timestamp", observedTimestamp), /* @__PURE__ */ import_react181.default.createElement("div", null));
+    }), /* @__PURE__ */ import_react179.default.createElement("div", null, "log body ", body), /* @__PURE__ */ import_react179.default.createElement("div", null, "log severity numnber: ", severityNumber), /* @__PURE__ */ import_react179.default.createElement("div", null, "log severity text: ", severityText), /* @__PURE__ */ import_react179.default.createElement("div", null, "log droppedAttributeCount: ", severityText), /* @__PURE__ */ import_react179.default.createElement("div", null, "log timestamp ", timestamp), /* @__PURE__ */ import_react179.default.createElement("div", null, "log observed timestamp", observedTimestamp), /* @__PURE__ */ import_react179.default.createElement("div", null));
   }
 
   // app/routes/telemetry-view.tsx
@@ -53019,12 +53011,12 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
   }
   function TelemetryView() {
     let telemetryData = useLoaderData();
-    let [telemetryType, setTelemetryType] = (0, import_react183.useState)(telemetryData.type);
+    let [telemetryType, setTelemetryType] = (0, import_react181.useState)(telemetryData.type);
     let logData = telemetryData.log;
-    (0, import_react183.useEffect)(() => {
+    (0, import_react181.useEffect)(() => {
       setTelemetryType(() => telemetryData.type);
     }, [telemetryData]);
-    return /* @__PURE__ */ import_react183.default.createElement(Grid, {
+    return /* @__PURE__ */ import_react181.default.createElement(Grid, {
       templateAreas: `"header detail"
                        "main detail"`,
       gridTemplateColumns: "1fr 350px",
@@ -53032,26 +53024,26 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
       gap: "0",
       height: "100vh",
       width: "100vw"
-    }, /* @__PURE__ */ import_react183.default.createElement(GridItem, {
+    }, /* @__PURE__ */ import_react181.default.createElement(GridItem, {
       area: "header"
-    }), /* @__PURE__ */ import_react183.default.createElement(GridItem, {
+    }), /* @__PURE__ */ import_react181.default.createElement(GridItem, {
       area: "main",
       marginLeft: "20px"
-    }, telemetryType == "log" && /* @__PURE__ */ import_react183.default.createElement(LogWaterfallView, {
+    }, telemetryType == "log" && /* @__PURE__ */ import_react181.default.createElement(LogWaterfallView, {
       log: logData
-    }), telemetryType == "metric" && /* @__PURE__ */ import_react183.default.createElement("div", null, "metrics dont work yet")), /* @__PURE__ */ import_react183.default.createElement(GridItem, {
+    }), telemetryType == "metric" && /* @__PURE__ */ import_react181.default.createElement("div", null, "metrics dont work yet")), /* @__PURE__ */ import_react181.default.createElement(GridItem, {
       area: "detail"
-    }, telemetryType == "log" && /* @__PURE__ */ import_react183.default.createElement("div", null, `${logData.body}`)));
+    }, telemetryType == "log" && /* @__PURE__ */ import_react181.default.createElement("div", null, `${logData.body}`)));
   }
 
   // app/error-page.tsx
-  var import_react185 = __toESM(require_react());
+  var import_react183 = __toESM(require_react());
   function ErrorPage() {
     const error = useRouteError();
     console.error(error);
-    return /* @__PURE__ */ import_react185.default.createElement("div", {
+    return /* @__PURE__ */ import_react183.default.createElement("div", {
       id: "error-page"
-    }, /* @__PURE__ */ import_react185.default.createElement("h1", null, "Oops!"), /* @__PURE__ */ import_react185.default.createElement("p", null, "Sorry, an unexpected error has occurred."), /* @__PURE__ */ import_react185.default.createElement("p", null, /* @__PURE__ */ import_react185.default.createElement("i", null, error.message)));
+    }, /* @__PURE__ */ import_react183.default.createElement("h1", null, "Oops!"), /* @__PURE__ */ import_react183.default.createElement("p", null, "Sorry, an unexpected error has occurred."), /* @__PURE__ */ import_react183.default.createElement("p", null, /* @__PURE__ */ import_react183.default.createElement("i", null, error.message)));
   }
 
   // app/main.tsx
@@ -53063,18 +53055,18 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
   var router = createBrowserRouter([
     {
       path: "/",
-      element: /* @__PURE__ */ import_react186.default.createElement(MainView, null),
+      element: /* @__PURE__ */ import_react184.default.createElement(MainView, null),
       loader: mainLoader,
-      errorElement: /* @__PURE__ */ import_react186.default.createElement(ErrorPage, null),
+      errorElement: /* @__PURE__ */ import_react184.default.createElement(ErrorPage, null),
       children: [
         {
           path: "traces/:traceID",
-          element: /* @__PURE__ */ import_react186.default.createElement(TraceView, null),
+          element: /* @__PURE__ */ import_react184.default.createElement(TraceView, null),
           loader: traceLoader
         },
         {
           path: "telemetry/:id",
-          element: /* @__PURE__ */ import_react186.default.createElement(TelemetryView, null),
+          element: /* @__PURE__ */ import_react184.default.createElement(TelemetryView, null),
           loader: telemetryLoader
         }
       ]
@@ -53084,9 +53076,9 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
   if (!!container2) {
     const root = (0, import_client.createRoot)(container2);
     root.render(
-      /* @__PURE__ */ import_react186.default.createElement(import_react186.default.StrictMode, null, /* @__PURE__ */ import_react186.default.createElement(ChakraProvider2, {
+      /* @__PURE__ */ import_react184.default.createElement(import_react184.default.StrictMode, null, /* @__PURE__ */ import_react184.default.createElement(ChakraProvider2, {
         theme: theme2
-      }, /* @__PURE__ */ import_react186.default.createElement(RouterProvider, {
+      }, /* @__PURE__ */ import_react184.default.createElement(RouterProvider, {
         router
       })))
     );

@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Flex, useColorModeValue, Button, Text } from "@chakra-ui/react";
 
 import { TelemetryList } from "./telemetry-list";
-import { TraceList } from "./trace-list";
 import { SummaryWithUIData } from "../../types/ui-types";
 import { SidebarHeader } from "./sidebar-header";
-import { TraceSummaries } from "../../types/api-types";
 
 const sidebarFullWidth = 350;
 const sidebarCollapsedWidth = 70;
