@@ -1,6 +1,6 @@
 import React from "react";
 import { LogData } from "../../types/api-types";
-import { Flex, Tab, TabList, TabPanels, Tabs } from "@chakra-ui/react";
+import { Flex, Tab, TabList, TabPanels, Tabs, Text } from "@chakra-ui/react";
 
 type LogDetailViewProps = {
   log: LogData | undefined;
@@ -40,12 +40,9 @@ export function LogDetailView(props: LogDetailViewProps) {
             spanStartTime={span.startTime}
           />
           <LinksPanel links={span.links} /> */}
-          <div>{log.body}</div>
-          <div>{log.timestamp}</div>
-          <div>{log.observedTimestamp}</div>
-          <div>{log.severityText}</div>
-          <div>{log.severityNumber}</div>
-          <div>{log.droppedAttributeCount}</div>
+          <Text>{log.body}</Text>
+          <Text>resource data goes here</Text>
+          <Text>scope data goes here</Text>
         </TabPanels>
       </Tabs>
     </Flex>

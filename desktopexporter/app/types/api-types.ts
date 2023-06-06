@@ -12,7 +12,6 @@ export type TraceSummaries = {
   traceSummaries: TraceSummary[];
 };
 
-//telemetry summaries
 export type Summaries = {
   summaries: Summary[];
 };
@@ -47,15 +46,16 @@ export type MetricData = {
 
 export type LogData = {
   body: string;
-  resource: ResourceData;
-  scope: ScopeData;
-
-  ID: string;
+  traceID: string;
+  spanID: string;
   timestamp: string;
   observedTimestamp: string;
+  // attributes: boolean; ??
   severityText: string;
   severityNumber: number;
   droppedAttributeCount: number;
+  resource: ResourceData;
+  scope: ScopeData;
 };
 
 export type TraceData = {
