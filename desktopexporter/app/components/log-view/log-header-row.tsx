@@ -2,19 +2,11 @@ import React, { useRef } from "react";
 import { useSize } from "@chakra-ui/react-use-size";
 import { Flex, Heading, List, ListItem, Spacer, Text } from "@chakra-ui/react";
 
-type LogHeaderRowProps = {
-  headerRowHeight: number;
-  nameColumnWidth: number;
-  serviceNameColumnWidth: number;
-};
-
-export function LogHeaderRow(props: LogHeaderRowProps) {
-  let { headerRowHeight, nameColumnWidth, serviceNameColumnWidth } = props;
-
+export function LogHeaderRow() {
   return (
-    <Flex height={`${headerRowHeight}px`}>
+    <Flex height={30}>
       <Flex
-        width={nameColumnWidth}
+        width={300}
         alignItems="center"
       >
         <Heading
@@ -25,14 +17,37 @@ export function LogHeaderRow(props: LogHeaderRowProps) {
         </Heading>
       </Flex>
       <Flex
-        width={serviceNameColumnWidth}
+        width={300}
         alignItems="center"
       >
         <Heading
           paddingX={1}
           size="sm"
         >
-          service.name
+          body
+        </Heading>
+      </Flex>
+      <Flex
+        width={100}
+        alignItems="center"
+      >
+        <Heading
+          paddingX={1}
+          size="sm"
+        >
+          severity
+        </Heading>
+      </Flex>
+
+      <Flex
+        width={300}
+        alignItems="center"
+      >
+        <Heading
+          paddingX={1}
+          size="sm"
+        >
+          timestamp
         </Heading>
       </Flex>
     </Flex>

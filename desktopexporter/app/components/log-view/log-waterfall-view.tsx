@@ -1,50 +1,126 @@
-import React, { useRef, createRef } from "react";
-import { Flex } from "@chakra-ui/react";
-import { LogHeaderRow } from "./log-header-row";
+import React, { useRef, CSSProperties } from "react";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import {
+  Divider,
+  Flex,
+  Text,
+  useColorModeValue,
+  LinkBox,
+  LinkOverlay,
+  Heading,
+} from "@chakra-ui/react";
 import { LogData, ResourceData } from "../../types/api-types";
 
 type LogWaterfallViewProps = {
   log: LogData;
+  style: CSSProperties;
 };
 
-export function LogWaterfallView(props: LogWaterfallViewProps) {
-  let containerRef = useRef(null);
-  let resource = { ...props.log.resource } as ResourceData;
+export function LogWaterfallView({ log, style }: LogWaterfallViewProps) {
+  let resource = { ...log.resource } as ResourceData;
   let attributes = { ...resource.attributes };
 
   let {
+    traceID,
     body,
     severityText,
     severityNumber,
     droppedAttributeCount,
     timestamp,
     observedTimestamp,
-  } = props.log;
+  } = log;
 
-  //display data
-  const headerRowHeight = 30;
+  const waterfallItemHeight = 20;
   const nameColumnWidth = 300;
-  const serviceNameColumnWidth = 200;
+  const bodyColumnWidth = 300;
+  const severityColumnWidth = 100;
+  const timestampColumnWidth = 300;
 
   return (
-    <Flex
-      direction="column"
-      ref={containerRef}
-      height="100%"
-      //   onCopy={stripZeroWidthSpacesOnCopyCallback} <- TO DO
-    >
-      <LogHeaderRow
-        headerRowHeight={headerRowHeight}
-        nameColumnWidth={nameColumnWidth}
-        serviceNameColumnWidth={serviceNameColumnWidth}
-      />
-      <div>Service Name: {attributes[`service.name`]}</div>
-      <div>Body: {body}</div>
-      <div>Severity Number: {severityNumber}</div>
-      <div>Severity Text: {severityText}</div>
-      <div>DroppedAttributeCount: {severityText}</div>
-      <div>Timestamp {timestamp}</div>
-      <div>Observed Timestamp{observedTimestamp}</div>
-    </Flex>
+    <div style={style}>
+      <LinkBox
+        justifyContent="space-between"
+        display="flex"
+        height={waterfallItemHeight}
+        paddingX="10px"
+        paddingTop="10px"
+        bgColor={useColorModeValue("pink.400", "pink.900")}
+        rounded="md"
+      >
+        <LinkOverlay href={`/traces/${traceID}`}>
+          <Flex
+            direction="column"
+            width={nameColumnWidth}
+          >
+            <Heading
+              paddingX={2}
+              size="sm"
+            >
+              name
+            </Heading>
+            <Text
+              paddingX={2}
+              size="sm"
+            >
+              {attributes[`service.name`]}
+            </Text>
+          </Flex>
+        </LinkOverlay>
+
+        <Flex
+          width={bodyColumnWidth}
+          direction="column"
+        >
+          <Heading
+            paddingX={1}
+            size="sm"
+          >
+            body
+          </Heading>
+          <Text
+            paddingX={1}
+            size="sm"
+          >
+            {body}
+          </Text>
+        </Flex>
+
+        <Flex
+          direction="column"
+          width={severityColumnWidth}
+        >
+          <Heading
+            paddingX={1}
+            size="sm"
+          >
+            severity
+          </Heading>
+          <Text
+            paddingX={1}
+            size="sm"
+          >
+            {severityText}
+          </Text>
+        </Flex>
+
+        <Flex
+          direction="column"
+          width={timestampColumnWidth}
+        >
+          <Heading
+            paddingX={1}
+            size="sm"
+          >
+            timestamp
+          </Heading>
+          <Text
+            paddingX={1}
+            size="sm"
+          >
+            {timestamp}
+          </Text>
+        </Flex>
+      </LinkBox>
+    </div>
   );
 }

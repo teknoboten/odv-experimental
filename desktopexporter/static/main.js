@@ -227,7 +227,7 @@
           pureComponentPrototype.constructor = PureComponent2;
           assign(pureComponentPrototype, Component3.prototype);
           pureComponentPrototype.isPureReactComponent = true;
-          function createRef2() {
+          function createRef() {
             var refObject = {
               current: null
             };
@@ -1782,7 +1782,7 @@
           exports.createContext = createContext12;
           exports.createElement = createElement$1;
           exports.createFactory = createFactory;
-          exports.createRef = createRef2;
+          exports.createRef = createRef;
           exports.forwardRef = forwardRef7;
           exports.isValidElement = isValidElement7;
           exports.lazy = lazy;
@@ -52042,7 +52042,7 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
     }, /* @__PURE__ */ import_react150.default.createElement(Text, {
       fontSize: "lg",
       noOfLines: 1
-    }, "Trace ID: ", /* @__PURE__ */ import_react150.default.createElement("strong", null, props.traceID)));
+    }, "Telemetry ID: ", /* @__PURE__ */ import_react150.default.createElement("strong", null, props.telemetryID)));
   }
 
   // app/components/detail-view/trace-detail-view.tsx
@@ -52891,7 +52891,7 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
     }, /* @__PURE__ */ import_react175.default.createElement(GridItem, {
       area: "header"
     }, /* @__PURE__ */ import_react175.default.createElement(Header, {
-      traceID: traceData.traceID
+      telemetryID: traceData.traceID
     })), /* @__PURE__ */ import_react175.default.createElement(GridItem, {
       area: "main",
       marginLeft: "20px"
@@ -52953,81 +52953,134 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
   var import_react187 = __toESM(require_react());
 
   // app/components/log-view/log-waterfall-view.tsx
-  var import_react179 = __toESM(require_react());
-
-  // app/components/log-view/log-header-row.tsx
   var import_react177 = __toESM(require_react());
-  function LogHeaderRow(props) {
-    let { headerRowHeight, nameColumnWidth, serviceNameColumnWidth } = props;
-    return /* @__PURE__ */ import_react177.default.createElement(Flex, {
-      height: `${headerRowHeight}px`
-    }, /* @__PURE__ */ import_react177.default.createElement(Flex, {
-      width: nameColumnWidth,
-      alignItems: "center"
-    }, /* @__PURE__ */ import_react177.default.createElement(Heading, {
-      paddingX: 2,
-      size: "sm"
-    }, "name")), /* @__PURE__ */ import_react177.default.createElement(Flex, {
-      width: serviceNameColumnWidth,
-      alignItems: "center"
-    }, /* @__PURE__ */ import_react177.default.createElement(Heading, {
-      paddingX: 1,
-      size: "sm"
-    }, "service.name")));
-  }
-
-  // app/components/log-view/log-waterfall-view.tsx
-  function LogWaterfallView(props) {
-    let containerRef = (0, import_react179.useRef)(null);
-    let resource = { ...props.log.resource };
+  function LogWaterfallView({ log, style }) {
+    let resource = { ...log.resource };
     let attributes = { ...resource.attributes };
     let {
+      traceID,
       body,
       severityText,
       severityNumber,
       droppedAttributeCount,
       timestamp,
       observedTimestamp
-    } = props.log;
-    const headerRowHeight = 30;
+    } = log;
+    const waterfallItemHeight = 20;
     const nameColumnWidth = 300;
-    const serviceNameColumnWidth = 200;
-    return /* @__PURE__ */ import_react179.default.createElement(Flex, {
+    const bodyColumnWidth = 300;
+    const severityColumnWidth = 100;
+    const timestampColumnWidth = 300;
+    return /* @__PURE__ */ import_react177.default.createElement("div", {
+      style
+    }, /* @__PURE__ */ import_react177.default.createElement(LinkBox, {
+      justifyContent: "space-between",
+      display: "flex",
+      height: waterfallItemHeight,
+      paddingX: "10px",
+      paddingTop: "10px",
+      bgColor: useColorModeValue("pink.400", "pink.900"),
+      rounded: "md"
+    }, /* @__PURE__ */ import_react177.default.createElement(LinkOverlay, {
+      href: `/traces/${traceID}`
+    }, /* @__PURE__ */ import_react177.default.createElement(Flex, {
       direction: "column",
-      ref: containerRef,
-      height: "100%"
-    }, /* @__PURE__ */ import_react179.default.createElement(LogHeaderRow, {
-      headerRowHeight,
-      nameColumnWidth,
-      serviceNameColumnWidth
-    }), /* @__PURE__ */ import_react179.default.createElement("div", null, "Service Name: ", attributes[`service.name`]), /* @__PURE__ */ import_react179.default.createElement("div", null, "Body: ", body), /* @__PURE__ */ import_react179.default.createElement("div", null, "Severity Number: ", severityNumber), /* @__PURE__ */ import_react179.default.createElement("div", null, "Severity Text: ", severityText), /* @__PURE__ */ import_react179.default.createElement("div", null, "DroppedAttributeCount: ", severityText), /* @__PURE__ */ import_react179.default.createElement("div", null, "Timestamp ", timestamp), /* @__PURE__ */ import_react179.default.createElement("div", null, "Observed Timestamp", observedTimestamp));
+      width: nameColumnWidth
+    }, /* @__PURE__ */ import_react177.default.createElement(Heading, {
+      paddingX: 2,
+      size: "sm"
+    }, "name"), /* @__PURE__ */ import_react177.default.createElement(Text, {
+      paddingX: 2,
+      size: "sm"
+    }, attributes[`service.name`]))), /* @__PURE__ */ import_react177.default.createElement(Flex, {
+      width: bodyColumnWidth,
+      direction: "column"
+    }, /* @__PURE__ */ import_react177.default.createElement(Heading, {
+      paddingX: 1,
+      size: "sm"
+    }, "body"), /* @__PURE__ */ import_react177.default.createElement(Text, {
+      paddingX: 1,
+      size: "sm"
+    }, body)), /* @__PURE__ */ import_react177.default.createElement(Flex, {
+      direction: "column",
+      width: severityColumnWidth
+    }, /* @__PURE__ */ import_react177.default.createElement(Heading, {
+      paddingX: 1,
+      size: "sm"
+    }, "severity"), /* @__PURE__ */ import_react177.default.createElement(Text, {
+      paddingX: 1,
+      size: "sm"
+    }, severityText)), /* @__PURE__ */ import_react177.default.createElement(Flex, {
+      direction: "column",
+      width: timestampColumnWidth
+    }, /* @__PURE__ */ import_react177.default.createElement(Heading, {
+      paddingX: 1,
+      size: "sm"
+    }, "timestamp"), /* @__PURE__ */ import_react177.default.createElement(Text, {
+      paddingX: 1,
+      size: "sm"
+    }, timestamp))));
   }
 
   // app/components/log-view/log-detail-view.tsx
-  var import_react181 = __toESM(require_react());
+  var import_react179 = __toESM(require_react());
   function LogDetailView(props) {
     let { log } = props;
     if (!log) {
-      return /* @__PURE__ */ import_react181.default.createElement("div", null);
+      return /* @__PURE__ */ import_react179.default.createElement("div", null);
     }
-    return /* @__PURE__ */ import_react181.default.createElement(Flex, {
+    return /* @__PURE__ */ import_react179.default.createElement(Flex, {
       grow: "0",
       shrink: "1",
       basis: "350px",
       height: "100vh",
       paddingTop: "30px",
       overflowY: "scroll"
-    }, /* @__PURE__ */ import_react181.default.createElement(Tabs, {
+    }, /* @__PURE__ */ import_react179.default.createElement(Tabs, {
       colorScheme: "pink",
       margin: 3,
       size: "sm",
       variant: "soft-rounded",
       width: "100vw"
-    }, /* @__PURE__ */ import_react181.default.createElement(TabList, null, /* @__PURE__ */ import_react181.default.createElement(Tab, null, "Beautiful Log Data \u{1F481}\u200D\u2640\uFE0F")), /* @__PURE__ */ import_react181.default.createElement(TabPanels, null, /* @__PURE__ */ import_react181.default.createElement("div", null, log.body), /* @__PURE__ */ import_react181.default.createElement("div", null, log.timestamp), /* @__PURE__ */ import_react181.default.createElement("div", null, log.observedTimestamp), /* @__PURE__ */ import_react181.default.createElement("div", null, log.severityText), /* @__PURE__ */ import_react181.default.createElement("div", null, log.severityNumber), /* @__PURE__ */ import_react181.default.createElement("div", null, log.droppedAttributeCount))));
+    }, /* @__PURE__ */ import_react179.default.createElement(TabList, null, /* @__PURE__ */ import_react179.default.createElement(Tab, null, "Beautiful Log Data \u{1F481}\u200D\u2640\uFE0F")), /* @__PURE__ */ import_react179.default.createElement(TabPanels, null, /* @__PURE__ */ import_react179.default.createElement(Text, null, log.body), /* @__PURE__ */ import_react179.default.createElement(Text, null, "resource data goes here"), /* @__PURE__ */ import_react179.default.createElement(Text, null, "scope data goes here"))));
   }
 
   // app/components/metric-view/metric-waterfall-view.tsx
   var import_react183 = __toESM(require_react());
+
+  // app/components/log-view/log-header-row.tsx
+  var import_react181 = __toESM(require_react());
+  function LogHeaderRow() {
+    return /* @__PURE__ */ import_react181.default.createElement(Flex, {
+      height: 30
+    }, /* @__PURE__ */ import_react181.default.createElement(Flex, {
+      width: 300,
+      alignItems: "center"
+    }, /* @__PURE__ */ import_react181.default.createElement(Heading, {
+      paddingX: 2,
+      size: "sm"
+    }, "name")), /* @__PURE__ */ import_react181.default.createElement(Flex, {
+      width: 300,
+      alignItems: "center"
+    }, /* @__PURE__ */ import_react181.default.createElement(Heading, {
+      paddingX: 1,
+      size: "sm"
+    }, "body")), /* @__PURE__ */ import_react181.default.createElement(Flex, {
+      width: 100,
+      alignItems: "center"
+    }, /* @__PURE__ */ import_react181.default.createElement(Heading, {
+      paddingX: 1,
+      size: "sm"
+    }, "severity")), /* @__PURE__ */ import_react181.default.createElement(Flex, {
+      width: 300,
+      alignItems: "center"
+    }, /* @__PURE__ */ import_react181.default.createElement(Heading, {
+      paddingX: 1,
+      size: "sm"
+    }, "timestamp")));
+  }
+
+  // app/components/metric-view/metric-waterfall-view.tsx
   function MetricWaterfallView(props) {
     let containerRef = (0, import_react183.useRef)(null);
     let resource = { ...props.metric.resource };
@@ -53093,7 +53146,9 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
       width: "100vw"
     }, /* @__PURE__ */ import_react187.default.createElement(GridItem, {
       area: "header"
-    }), /* @__PURE__ */ import_react187.default.createElement(GridItem, {
+    }, /* @__PURE__ */ import_react187.default.createElement(Header, {
+      telemetryID: telemetryData.ID
+    })), /* @__PURE__ */ import_react187.default.createElement(GridItem, {
       area: "main",
       marginLeft: "20px"
     }, telemetryType == "log" && /* @__PURE__ */ import_react187.default.createElement(LogWaterfallView, {
