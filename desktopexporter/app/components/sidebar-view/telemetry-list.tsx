@@ -62,7 +62,7 @@ function SidebarRow({ index, style, data }: SidebarRowProps) {
 
         <Text fontSize="xs">
           {"Number of Spans: "}
-          <strong>{summary.spanCount}</strong>
+          <strong>{summary.spanCount ? summary.spanCount : "n/a"}</strong>
         </Text>
 
         <LinkOverlay
@@ -91,7 +91,11 @@ function SidebarRow({ index, style, data }: SidebarRowProps) {
         paddingX="20px"
       >
         <Text fontSize="xs">
-          <strong>{summary.serviceName}</strong>
+          <strong>
+            {summary.serviceName
+              ? summary.serviceName
+              : "service name not available "}
+          </strong>
         </Text>
         <Text fontSize="xs">{`Type: ${summary.type}`}</Text>
         <LinkOverlay
@@ -107,8 +111,6 @@ function SidebarRow({ index, style, data }: SidebarRowProps) {
     </div>
   );
 }
-
-//To Do: ??
 
 type TelemetryListProps = {
   summaries: SummaryWithUIData[];

@@ -1,7 +1,6 @@
 import React, { useRef, CSSProperties } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import {
-  Divider,
   Flex,
   Text,
   useColorModeValue,
@@ -13,10 +12,9 @@ import { LogData, ResourceData } from "../../types/api-types";
 
 type LogWaterfallViewProps = {
   log: LogData;
-  style: CSSProperties;
 };
 
-export function LogWaterfallView({ log, style }: LogWaterfallViewProps) {
+export function LogWaterfallView({ log }: LogWaterfallViewProps) {
   let resource = { ...log.resource } as ResourceData;
   let attributes = { ...resource.attributes };
 
@@ -37,7 +35,7 @@ export function LogWaterfallView({ log, style }: LogWaterfallViewProps) {
   const timestampColumnWidth = 300;
 
   return (
-    <div style={style}>
+    <div>
       <LinkBox
         justifyContent="space-between"
         display="flex"

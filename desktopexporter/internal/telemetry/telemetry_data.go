@@ -8,10 +8,12 @@ func (t *TelemetryData) GetSummary() TelemetrySummary {
 			Type:        t.Type,
 			ID:          traceSummary.TraceID,
 			ServiceName: traceSummary.RootServiceName,
+			TraceID:     traceSummary.TraceID,
 		}
 	}
 	return TelemetrySummary{
-		Type: t.Type,
-		ID:   t.ID,
+		Type:    t.Type,
+		ID:      t.ID,
+		TraceID: t.ID,
 	}
 }

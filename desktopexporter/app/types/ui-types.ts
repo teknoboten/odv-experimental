@@ -30,6 +30,7 @@ export type SummaryWithUIData =
       spanCount: number;
       ID: string;
       type: string;
+      traceID: string;
     }
   | {
       hasRootSpan: false;
@@ -37,12 +38,14 @@ export type SummaryWithUIData =
       ID: string;
       type: "trace";
       serviceName: string;
+      traceID: string;
     }
   | {
       ID: string;
       type: string;
       serviceName: string;
       spanCount: number;
+      traceID: string;
     };
 
 export type TraceSummaryWithUIData =

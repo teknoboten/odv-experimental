@@ -26,6 +26,7 @@ export type Summary = {
   rootStartTime: string;
   rootEndTime: string;
   spanCount: number;
+  traceID: string;
 };
 
 export type TelemetryData = {
@@ -34,6 +35,7 @@ export type TelemetryData = {
   metric: MetricData;
   log: LogData;
   trace: TraceData;
+  traceID: string;
 };
 
 export type MetricData = {

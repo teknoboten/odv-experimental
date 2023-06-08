@@ -51107,7 +51107,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       fontSize: "xs"
     }, `Type: ${summary.type}`), /* @__PURE__ */ import_react139.default.createElement(Text, {
       fontSize: "xs"
-    }, "Number of Spans: ", /* @__PURE__ */ import_react139.default.createElement("strong", null, summary.spanCount)), /* @__PURE__ */ import_react139.default.createElement(LinkOverlay, {
+    }, "Number of Spans: ", /* @__PURE__ */ import_react139.default.createElement("strong", null, summary.spanCount ? summary.spanCount : "n/a")), /* @__PURE__ */ import_react139.default.createElement(LinkOverlay, {
       as: NavLink,
       to: `traces/${summary.ID}`
     }, /* @__PURE__ */ import_react139.default.createElement(Text, {
@@ -51126,7 +51126,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       paddingX: "20px"
     }, /* @__PURE__ */ import_react139.default.createElement(Text, {
       fontSize: "xs"
-    }, /* @__PURE__ */ import_react139.default.createElement("strong", null, summary.serviceName)), /* @__PURE__ */ import_react139.default.createElement(Text, {
+    }, /* @__PURE__ */ import_react139.default.createElement("strong", null, summary.serviceName ? summary.serviceName : "service name not available ")), /* @__PURE__ */ import_react139.default.createElement(Text, {
       fontSize: "xs"
     }, `Type: ${summary.type}`), /* @__PURE__ */ import_react139.default.createElement(LinkOverlay, {
       as: NavLink,
@@ -52009,7 +52009,8 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
         rootDurationString: durationString,
         spanCount: summary.spanCount,
         ID: summary.ID,
-        type: summary.type
+        type: summary.type,
+        traceID: summary.traceID
       };
     }
     if (summary.type == "trace" && !summary.hasRootSpan) {
@@ -52018,14 +52019,16 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
         spanCount: summary.spanCount,
         ID: summary.ID,
         type: summary.type,
-        serviceName: summary.serviceName
+        serviceName: summary.serviceName,
+        traceID: summary.traceID
       };
     }
     return {
       spanCount: 0,
       ID: summary.ID,
       type: summary.type,
-      serviceName: summary.serviceName
+      serviceName: summary.serviceName,
+      traceID: summary.traceID
     };
   }
 
@@ -52042,7 +52045,7 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
     }, /* @__PURE__ */ import_react150.default.createElement(Text, {
       fontSize: "lg",
       noOfLines: 1
-    }, "Telemetry ID: ", /* @__PURE__ */ import_react150.default.createElement("strong", null, props.telemetryID)));
+    }, "Trace ID: ", /* @__PURE__ */ import_react150.default.createElement("strong", null, props.traceID)));
   }
 
   // app/components/detail-view/trace-detail-view.tsx
@@ -52891,7 +52894,7 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
     }, /* @__PURE__ */ import_react175.default.createElement(GridItem, {
       area: "header"
     }, /* @__PURE__ */ import_react175.default.createElement(Header, {
-      telemetryID: traceData.traceID
+      traceID: traceData.traceID
     })), /* @__PURE__ */ import_react175.default.createElement(GridItem, {
       area: "main",
       marginLeft: "20px"
@@ -52954,7 +52957,7 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
 
   // app/components/log-view/log-waterfall-view.tsx
   var import_react177 = __toESM(require_react());
-  function LogWaterfallView({ log, style }) {
+  function LogWaterfallView({ log }) {
     let resource = { ...log.resource };
     let attributes = { ...resource.attributes };
     let {
@@ -52971,9 +52974,7 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
     const bodyColumnWidth = 300;
     const severityColumnWidth = 100;
     const timestampColumnWidth = 300;
-    return /* @__PURE__ */ import_react177.default.createElement("div", {
-      style
-    }, /* @__PURE__ */ import_react177.default.createElement(LinkBox, {
+    return /* @__PURE__ */ import_react177.default.createElement("div", null, /* @__PURE__ */ import_react177.default.createElement(LinkBox, {
       justifyContent: "space-between",
       display: "flex",
       height: waterfallItemHeight,
@@ -53147,7 +53148,7 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
     }, /* @__PURE__ */ import_react187.default.createElement(GridItem, {
       area: "header"
     }, /* @__PURE__ */ import_react187.default.createElement(Header, {
-      telemetryID: telemetryData.ID
+      traceID: telemetryData.ID
     })), /* @__PURE__ */ import_react187.default.createElement(GridItem, {
       area: "main",
       marginLeft: "20px"

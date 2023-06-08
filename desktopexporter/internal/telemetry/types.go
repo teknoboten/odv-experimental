@@ -15,6 +15,8 @@ type TelemetrySummary struct {
 	ServiceName string `json:"serviceName"`
 	Type        string `json:"type"`
 	ID          string `json:"ID"`
+	
+	TraceID   string `json:"traceID"`
 }
 
 type TelemetryData struct {
