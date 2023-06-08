@@ -2,7 +2,7 @@ import React from "react";
 import { Flex, Text } from "@chakra-ui/react";
 
 type HeaderProps = {
-  telemetryID: string;
+  traceID: string;
 };
 
 export function Header(props: HeaderProps) {
@@ -16,8 +16,8 @@ export function Header(props: HeaderProps) {
         fontSize="lg"
         noOfLines={1}
       >
-        {"Telemetry ID: "}
-        <strong>{props.telemetryID}</strong>
+        {"Trace ID: "}
+        <strong>{props.traceID}</strong>
       </Text>
     </Flex>
   );

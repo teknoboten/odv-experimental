@@ -130,6 +130,7 @@ function generateSummaryWithUIData(summary: Summary): SummaryWithUIData {
       spanCount: summary.spanCount,
       ID: summary.ID,
       type: summary.type,
+      traceID: summary.traceID,
     };
   }
 
@@ -140,6 +141,7 @@ function generateSummaryWithUIData(summary: Summary): SummaryWithUIData {
       ID: summary.ID,
       type: summary.type,
       serviceName: summary.serviceName,
+      traceID: summary.traceID,
     };
   }
   return {
@@ -147,5 +149,6 @@ function generateSummaryWithUIData(summary: Summary): SummaryWithUIData {
     ID: summary.ID,
     type: summary.type,
     serviceName: summary.serviceName,
+    traceID: summary.traceID,
   };
 }
