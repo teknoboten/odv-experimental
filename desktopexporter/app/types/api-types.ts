@@ -47,17 +47,20 @@ export type MetricData = {
 };
 
 export type LogData = {
-  body: string;
   traceID: string;
   spanID: string;
+
+  body: string;
   timestamp: string;
   observedTimestamp: string;
-  // attributes: boolean; ??
-  severityText: string;
-  severityNumber: number;
-  droppedAttributeCount: number;
+
+  attributes: { [key: string]: number | string | boolean | null };
   resource: ResourceData;
   scope: ScopeData;
+
+  droppedAttributeCount: number;
+  severityNumber: number;
+  severityText: string;
 };
 
 export type TraceData = {
