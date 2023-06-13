@@ -11,7 +11,8 @@ import { getDurationNs, getDurationString } from "../utils/duration";
 
 export async function mainLoader() {
   const response = await fetch("/api/telemetry");
-  const summaries = await response.json();
+  let summaries = await response.json();
+
   return summaries;
 }
 
@@ -68,6 +69,8 @@ export default function MainView() {
 }
 
 function initSidebarData(summaries: Summary[]): SidebarData {
+  summaries = summaries.filter((summary) => filterMetrics(summary)); //filter metrics for now
+
   return {
     summaries: summaries.map((summary) => generateSummaryWithUIData(summary)),
     numNewTelemetry: 0,
@@ -151,4 +154,8 @@ function generateSummaryWithUIData(summary: Summary): SummaryWithUIData {
     serviceName: summary.serviceName,
     traceID: summary.traceID,
   };
+}
+
+function filterMetrics(summary: Summary) {
+  return summary.type !== "metric";
 }
