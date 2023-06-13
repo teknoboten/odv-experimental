@@ -8,8 +8,8 @@ import { LogData, TelemetryData, MetricData } from "../types/api-types";
 import { Header } from "../components/header-view/header";
 import { LogWaterfallView } from "../components/log-view/log-waterfall-view";
 import { LogDetailView } from "../components/log-view/log-detail-view";
-import { MetricWaterfallView } from "../components/metric-view/metric-waterfall-view";
-import { MetricDetailView } from "../components/metric-view/metric-detail-view";
+// import { MetricWaterfallView } from "../components/metric-view/metric-waterfall-view";
+// import { MetricDetailView } from "../components/metric-view/metric-detail-view";
 
 export async function telemetryLoader({ params }: any) {
   let response = await fetch(`/api/telemetry/${params.id}`);
@@ -21,11 +21,11 @@ export default function TelemetryView() {
   let telemetryData = useLoaderData() as TelemetryData;
   let [telemetryType, setTelemetryType] = useState(telemetryData.type);
   let logData = telemetryData.log as LogData;
-  let metricData = telemetryData.metric as MetricData;
+  // let metricData = telemetryData.metric as MetricData;
 
-  useEffect(() => {
-    setTelemetryType(() => telemetryData.type);
-  }, [telemetryData]);
+  // useEffect(() => {
+  //   setTelemetryType(() => telemetryData.type);
+  // }, [telemetryData]);
 
   return (
     <Grid
@@ -45,13 +45,13 @@ export default function TelemetryView() {
         marginLeft="20px"
       >
         {telemetryType == "log" && <LogWaterfallView log={logData} />}
-        {telemetryType == "metric" && (
+        {/* {telemetryType == "metric" && (
           <MetricWaterfallView metric={metricData} />
-        )}
+        )} */}
       </GridItem>
       <GridItem area={"detail"}>
         {telemetryType == "log" && <LogDetailView log={logData} />}
-        {telemetryType == "metric" && <MetricDetailView metric={metricData} />}
+        {/* {telemetryType == "metric" && <MetricDetailView metric={metricData} />} */}
       </GridItem>
     </Grid>
   );

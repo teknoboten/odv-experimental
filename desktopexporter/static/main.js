@@ -1009,7 +1009,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useReducer(reducer, initialArg, init);
           }
-          function useRef30(initialValue) {
+          function useRef29(initialValue) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
@@ -1800,7 +1800,7 @@
           exports.useLayoutEffect = useLayoutEffect9;
           exports.useMemo = useMemo19;
           exports.useReducer = useReducer;
-          exports.useRef = useRef30;
+          exports.useRef = useRef29;
           exports.useState = useState25;
           exports.useSyncExternalStore = useSyncExternalStore3;
           exports.useTransition = useTransition;
@@ -2297,9 +2297,9 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React58 = require_react();
+          var React56 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React58.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React56.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -3820,7 +3820,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React58.Children.forEach(props.children, function(child) {
+                  React56.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -11981,7 +11981,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React58.Component().refs;
+          var emptyRefsObject = new React56.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -25638,7 +25638,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
     "node_modules/@emotion/use-insertion-effect-with-fallbacks/dist/emotion-use-insertion-effect-with-fallbacks.cjs.dev.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: true });
-      var React58 = require_react();
+      var React56 = require_react();
       function _interopNamespace(e) {
         if (e && e.__esModule)
           return e;
@@ -25659,14 +25659,14 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         n["default"] = e;
         return Object.freeze(n);
       }
-      var React__namespace = /* @__PURE__ */ _interopNamespace(React58);
+      var React__namespace = /* @__PURE__ */ _interopNamespace(React56);
       var isBrowser3 = typeof document !== "undefined";
       var syncFallback = function syncFallback2(create) {
         return create();
       };
       var useInsertionEffect2 = React__namespace["useInsertionEffect"] ? React__namespace["useInsertionEffect"] : false;
       var useInsertionEffectAlwaysWithSyncFallback = !isBrowser3 ? syncFallback : useInsertionEffect2 || syncFallback;
-      var useInsertionEffectWithLayoutFallback = useInsertionEffect2 || React58.useLayoutEffect;
+      var useInsertionEffectWithLayoutFallback = useInsertionEffect2 || React56.useLayoutEffect;
       exports.useInsertionEffectAlwaysWithSyncFallback = useInsertionEffectAlwaysWithSyncFallback;
       exports.useInsertionEffectWithLayoutFallback = useInsertionEffectWithLayoutFallback;
     }
@@ -25688,7 +25688,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
   var require_emotion_element_b63ca7c6_cjs_dev = __commonJS({
     "node_modules/@emotion/react/dist/emotion-element-b63ca7c6.cjs.dev.js"(exports) {
       "use strict";
-      var React58 = require_react();
+      var React56 = require_react();
       var createCache = require_emotion_cache_cjs();
       var _extends5 = require_extends();
       var weakMemoize = require_emotion_weak_memoize_cjs();
@@ -25703,7 +25703,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       var weakMemoize__default = /* @__PURE__ */ _interopDefault(weakMemoize);
       var isBrowser3 = typeof document !== "undefined";
       var hasOwnProperty = {}.hasOwnProperty;
-      var EmotionCacheContext = /* @__PURE__ */ React58.createContext(
+      var EmotionCacheContext = /* @__PURE__ */ React56.createContext(
         typeof HTMLElement !== "undefined" ? /* @__PURE__ */ createCache__default["default"]({
           key: "css"
         }) : null
@@ -25713,23 +25713,23 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       }
       var CacheProvider = EmotionCacheContext.Provider;
       var __unsafe_useEmotionCache = function useEmotionCache() {
-        return React58.useContext(EmotionCacheContext);
+        return React56.useContext(EmotionCacheContext);
       };
       exports.withEmotionCache = function withEmotionCache(func) {
-        return /* @__PURE__ */ React58.forwardRef(function(props, ref) {
-          var cache = React58.useContext(EmotionCacheContext);
+        return /* @__PURE__ */ React56.forwardRef(function(props, ref) {
+          var cache = React56.useContext(EmotionCacheContext);
           return func(props, cache, ref);
         });
       };
       if (!isBrowser3) {
         exports.withEmotionCache = function withEmotionCache(func) {
           return function(props) {
-            var cache = React58.useContext(EmotionCacheContext);
+            var cache = React56.useContext(EmotionCacheContext);
             if (cache === null) {
               cache = createCache__default["default"]({
                 key: "css"
               });
-              return /* @__PURE__ */ React58.createElement(EmotionCacheContext.Provider, {
+              return /* @__PURE__ */ React56.createElement(EmotionCacheContext.Provider, {
                 value: cache
               }, func(props, cache));
             } else {
@@ -25738,12 +25738,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
           };
         };
       }
-      var ThemeContext2 = /* @__PURE__ */ React58.createContext({});
+      var ThemeContext2 = /* @__PURE__ */ React56.createContext({});
       if (true) {
         ThemeContext2.displayName = "EmotionThemeContext";
       }
       var useTheme2 = function useTheme3() {
-        return React58.useContext(ThemeContext2);
+        return React56.useContext(ThemeContext2);
       };
       var getTheme2 = function getTheme3(outerTheme, theme3) {
         if (typeof theme3 === "function") {
@@ -25764,24 +25764,24 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         });
       });
       var ThemeProvider2 = function ThemeProvider3(props) {
-        var theme3 = React58.useContext(ThemeContext2);
+        var theme3 = React56.useContext(ThemeContext2);
         if (props.theme !== theme3) {
           theme3 = createCacheWithTheme(theme3)(props.theme);
         }
-        return /* @__PURE__ */ React58.createElement(ThemeContext2.Provider, {
+        return /* @__PURE__ */ React56.createElement(ThemeContext2.Provider, {
           value: theme3
         }, props.children);
       };
       function withTheme(Component3) {
         var componentName = Component3.displayName || Component3.name || "Component";
         var render = function render2(props, ref) {
-          var theme3 = React58.useContext(ThemeContext2);
-          return /* @__PURE__ */ React58.createElement(Component3, _extends5({
+          var theme3 = React56.useContext(ThemeContext2);
+          return /* @__PURE__ */ React56.createElement(Component3, _extends5({
             theme: theme3,
             ref
           }, props));
         };
-        var WithTheme = /* @__PURE__ */ React58.forwardRef(render);
+        var WithTheme = /* @__PURE__ */ React56.forwardRef(render);
         WithTheme.displayName = "WithTheme(" + componentName + ")";
         return _isolatedHnrs_dist_emotionReact_isolatedHnrs["default"](WithTheme, Component3);
       }
@@ -25851,7 +25851,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
             serializedNames += " " + next.name;
             next = next.next;
           }
-          return /* @__PURE__ */ React58.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedNames, _ref2.dangerouslySetInnerHTML = {
+          return /* @__PURE__ */ React56.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedNames, _ref2.dangerouslySetInnerHTML = {
             __html: rules
           }, _ref2.nonce = cache.sheet.nonce, _ref2));
         }
@@ -25870,7 +25870,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         } else if (props.className != null) {
           className = props.className + " ";
         }
-        var serialized = serialize.serializeStyles(registeredStyles, void 0, React58.useContext(ThemeContext2));
+        var serialized = serialize.serializeStyles(registeredStyles, void 0, React56.useContext(ThemeContext2));
         if (serialized.name.indexOf("-") === -1) {
           var labelFromStack = props[labelPropName];
           if (labelFromStack) {
@@ -25886,11 +25886,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         }
         newProps.ref = ref;
         newProps.className = className;
-        return /* @__PURE__ */ React58.createElement(React58.Fragment, null, /* @__PURE__ */ React58.createElement(Insertion, {
+        return /* @__PURE__ */ React56.createElement(React56.Fragment, null, /* @__PURE__ */ React56.createElement(Insertion, {
           cache,
           serialized,
           isStringTag: typeof WrappedComponent === "string"
-        }), /* @__PURE__ */ React58.createElement(WrappedComponent, newProps));
+        }), /* @__PURE__ */ React56.createElement(WrappedComponent, newProps));
       });
       if (true) {
         Emotion.displayName = "EmotionCssPropInternal";
@@ -25913,7 +25913,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
     "node_modules/@emotion/react/dist/emotion-react.cjs.dev.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: true });
-      var React58 = require_react();
+      var React56 = require_react();
       require_emotion_cache_cjs();
       var emotionElement = require_emotion_element_b63ca7c6_cjs_dev();
       require_extends();
@@ -26048,7 +26048,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       var jsx = function jsx2(type, props) {
         var args = arguments;
         if (props == null || !emotionElement.hasOwnProperty.call(props, "css")) {
-          return React58.createElement.apply(void 0, args);
+          return React56.createElement.apply(void 0, args);
         }
         var argsLength = args.length;
         var createElementArgArray = new Array(argsLength);
@@ -26057,7 +26057,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         for (var i = 2; i < argsLength; i++) {
           createElementArgArray[i] = args[i];
         }
-        return React58.createElement.apply(null, createElementArgArray);
+        return React56.createElement.apply(null, createElementArgArray);
       };
       var warnedAboutCssPropForGlobal = false;
       var Global3 = /* @__PURE__ */ emotionElement.withEmotionCache(function(props, cache) {
@@ -26066,7 +26066,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
           warnedAboutCssPropForGlobal = true;
         }
         var styles2 = props.styles;
-        var serialized = serialize.serializeStyles([styles2], void 0, React58.useContext(emotionElement.ThemeContext));
+        var serialized = serialize.serializeStyles([styles2], void 0, React56.useContext(emotionElement.ThemeContext));
         if (!emotionElement.isBrowser) {
           var _ref;
           var serializedNames = serialized.name;
@@ -26085,11 +26085,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
           if (shouldCache) {
             return null;
           }
-          return /* @__PURE__ */ React58.createElement("style", (_ref = {}, _ref["data-emotion"] = cache.key + "-global " + serializedNames, _ref.dangerouslySetInnerHTML = {
+          return /* @__PURE__ */ React56.createElement("style", (_ref = {}, _ref["data-emotion"] = cache.key + "-global " + serializedNames, _ref.dangerouslySetInnerHTML = {
             __html: rules
           }, _ref.nonce = cache.sheet.nonce, _ref));
         }
-        var sheetRef = React58.useRef();
+        var sheetRef = React56.useRef();
         useInsertionEffectWithFallbacks.useInsertionEffectWithLayoutFallback(function() {
           var key = cache.key + "-global";
           var sheet = new cache.sheet.constructor({
@@ -26217,7 +26217,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         });
         if (!emotionElement.isBrowser && rules.length !== 0) {
           var _ref2;
-          return /* @__PURE__ */ React58.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedArr.map(function(serialized) {
+          return /* @__PURE__ */ React56.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedArr.map(function(serialized) {
             return serialized.name;
           }).join(" "), _ref2.dangerouslySetInnerHTML = {
             __html: rules
@@ -26252,11 +26252,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         var content = {
           css: css3,
           cx: cx9,
-          theme: React58.useContext(emotionElement.ThemeContext)
+          theme: React56.useContext(emotionElement.ThemeContext)
         };
         var ele = props.children(content);
         hasRendered = true;
-        return /* @__PURE__ */ React58.createElement(React58.Fragment, null, /* @__PURE__ */ React58.createElement(Insertion, {
+        return /* @__PURE__ */ React56.createElement(React56.Fragment, null, /* @__PURE__ */ React56.createElement(Insertion, {
           cache,
           serializedArr
         }), ele);
@@ -26351,7 +26351,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: true });
       var _extends5 = require_extends();
-      var React58 = require_react();
+      var React56 = require_react();
       var isPropValid = require_emotion_is_prop_valid_cjs();
       var react = require_emotion_react_cjs();
       var utils = require_emotion_utils_cjs();
@@ -26400,7 +26400,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
             serializedNames += " " + next.name;
             next = next.next;
           }
-          return /* @__PURE__ */ React58.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedNames, _ref2.dangerouslySetInnerHTML = {
+          return /* @__PURE__ */ React56.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache.key + " " + serializedNames, _ref2.dangerouslySetInnerHTML = {
             __html: rules
           }, _ref2.nonce = cache.sheet.nonce, _ref2));
         }
@@ -26455,7 +26455,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
               for (var key in props) {
                 mergedProps[key] = props[key];
               }
-              mergedProps.theme = React58.useContext(react.ThemeContext);
+              mergedProps.theme = React56.useContext(react.ThemeContext);
             }
             if (typeof props.className === "string") {
               className = utils.getRegisteredStyles(cache.registered, classInterpolations, props.className);
@@ -26478,11 +26478,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
             }
             newProps.className = className;
             newProps.ref = ref;
-            return /* @__PURE__ */ React58.createElement(React58.Fragment, null, /* @__PURE__ */ React58.createElement(Insertion, {
+            return /* @__PURE__ */ React56.createElement(React56.Fragment, null, /* @__PURE__ */ React56.createElement(Insertion, {
               cache,
               serialized,
               isStringTag: typeof FinalTag === "string"
-            }), /* @__PURE__ */ React58.createElement(FinalTag, newProps));
+            }), /* @__PURE__ */ React56.createElement(FinalTag, newProps));
           });
           Styled.displayName = identifierName !== void 0 ? identifierName : "Styled(" + (typeof baseTag === "string" ? baseTag : baseTag.displayName || baseTag.name || "Component") + ")";
           Styled.defaultProps = tag.defaultProps;
@@ -27716,7 +27716,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
   });
 
   // app/main.tsx
-  var import_react192 = __toESM(require_react());
+  var import_react188 = __toESM(require_react());
   var import_client = __toESM(require_client());
 
   // node_modules/@chakra-ui/react/dist/index.esm.js
@@ -51966,7 +51966,7 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
   // app/routes/main-view.tsx
   async function mainLoader() {
     const response = await fetch("/api/telemetry");
-    const summaries = await response.json();
+    let summaries = await response.json();
     return summaries;
   }
   function MainView() {
@@ -51993,6 +51993,7 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
     }), /* @__PURE__ */ import_react148.default.createElement(Outlet, null));
   }
   function initSidebarData(summaries) {
+    summaries = summaries.filter((summary) => filterMetrics(summary));
     return {
       summaries: summaries.map((summary) => generateSummaryWithUIData(summary)),
       numNewTelemetry: 0
@@ -52030,6 +52031,9 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
       serviceName: summary.serviceName,
       traceID: summary.traceID
     };
+  }
+  function filterMetrics(summary) {
+    return summary.type !== "metric";
   }
 
   // app/routes/trace-view.tsx
@@ -52953,7 +52957,7 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
   }
 
   // app/routes/telemetry-view.tsx
-  var import_react189 = __toESM(require_react());
+  var import_react185 = __toESM(require_react());
 
   // app/components/log-view/log-waterfall-view.tsx
   var import_react177 = __toESM(require_react());
@@ -53178,40 +53182,6 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
     }));
   }
 
-  // app/components/metric-view/metric-waterfall-view.tsx
-  var import_react185 = __toESM(require_react());
-  function MetricWaterfallView(props) {
-    let resource = { ...props.metric.resource };
-    let { name, description, unit } = props.metric;
-    let attributes = { ...resource.attributes };
-    return /* @__PURE__ */ import_react185.default.createElement(Flex, {
-      direction: "column",
-      height: "100%"
-    }, /* @__PURE__ */ import_react185.default.createElement("div", null, "Service Name: ", attributes[`service.name`]), /* @__PURE__ */ import_react185.default.createElement("div", null, "Name: ", name), /* @__PURE__ */ import_react185.default.createElement("div", null, "Description: ", description), /* @__PURE__ */ import_react185.default.createElement("div", null, "Unit: ", unit));
-  }
-
-  // app/components/metric-view/metric-detail-view.tsx
-  var import_react187 = __toESM(require_react());
-  function MetricDetailView(props) {
-    let { name, description, unit } = props.metric;
-    let resource = { ...props.metric.resource };
-    let attributes = { ...resource.attributes };
-    return /* @__PURE__ */ import_react187.default.createElement(Flex, {
-      grow: "0",
-      shrink: "1",
-      basis: "350px",
-      height: "100vh",
-      paddingTop: "30px",
-      overflowY: "scroll"
-    }, /* @__PURE__ */ import_react187.default.createElement(Tabs, {
-      colorScheme: "pink",
-      margin: 3,
-      size: "sm",
-      variant: "soft-rounded",
-      width: "100vw"
-    }, /* @__PURE__ */ import_react187.default.createElement(TabList, null, /* @__PURE__ */ import_react187.default.createElement(Tab, null, "Beautiful Metric Data \u{1F481}\u200D\u2640\uFE0F")), /* @__PURE__ */ import_react187.default.createElement(TabPanels, null, /* @__PURE__ */ import_react187.default.createElement("div", null, "Service Name: ", attributes[`service.name`]), /* @__PURE__ */ import_react187.default.createElement("div", null, name), /* @__PURE__ */ import_react187.default.createElement("div", null, description), /* @__PURE__ */ import_react187.default.createElement("div", null, unit))));
-  }
-
   // app/routes/telemetry-view.tsx
   async function telemetryLoader({ params }) {
     let response = await fetch(`/api/telemetry/${params.id}`);
@@ -53220,13 +53190,9 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
   }
   function TelemetryView() {
     let telemetryData = useLoaderData();
-    let [telemetryType, setTelemetryType] = (0, import_react189.useState)(telemetryData.type);
+    let [telemetryType, setTelemetryType] = (0, import_react185.useState)(telemetryData.type);
     let logData = telemetryData.log;
-    let metricData = telemetryData.metric;
-    (0, import_react189.useEffect)(() => {
-      setTelemetryType(() => telemetryData.type);
-    }, [telemetryData]);
-    return /* @__PURE__ */ import_react189.default.createElement(Grid, {
+    return /* @__PURE__ */ import_react185.default.createElement(Grid, {
       templateAreas: `"header detail"
                        "main detail"`,
       gridTemplateColumns: "1fr 350px",
@@ -53234,34 +53200,30 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
       gap: "0",
       height: "100vh",
       width: "100vw"
-    }, /* @__PURE__ */ import_react189.default.createElement(GridItem, {
+    }, /* @__PURE__ */ import_react185.default.createElement(GridItem, {
       area: "header"
-    }, /* @__PURE__ */ import_react189.default.createElement(Header, {
+    }, /* @__PURE__ */ import_react185.default.createElement(Header, {
       traceID: telemetryData.ID
-    })), /* @__PURE__ */ import_react189.default.createElement(GridItem, {
+    })), /* @__PURE__ */ import_react185.default.createElement(GridItem, {
       area: "main",
       marginLeft: "20px"
-    }, telemetryType == "log" && /* @__PURE__ */ import_react189.default.createElement(LogWaterfallView, {
+    }, telemetryType == "log" && /* @__PURE__ */ import_react185.default.createElement(LogWaterfallView, {
       log: logData
-    }), telemetryType == "metric" && /* @__PURE__ */ import_react189.default.createElement(MetricWaterfallView, {
-      metric: metricData
-    })), /* @__PURE__ */ import_react189.default.createElement(GridItem, {
+    })), /* @__PURE__ */ import_react185.default.createElement(GridItem, {
       area: "detail"
-    }, telemetryType == "log" && /* @__PURE__ */ import_react189.default.createElement(LogDetailView, {
+    }, telemetryType == "log" && /* @__PURE__ */ import_react185.default.createElement(LogDetailView, {
       log: logData
-    }), telemetryType == "metric" && /* @__PURE__ */ import_react189.default.createElement(MetricDetailView, {
-      metric: metricData
     })));
   }
 
   // app/error-page.tsx
-  var import_react191 = __toESM(require_react());
+  var import_react187 = __toESM(require_react());
   function ErrorPage() {
     const error = useRouteError();
     console.error(error);
-    return /* @__PURE__ */ import_react191.default.createElement("div", {
+    return /* @__PURE__ */ import_react187.default.createElement("div", {
       id: "error-page"
-    }, /* @__PURE__ */ import_react191.default.createElement("h1", null, "Oops!"), /* @__PURE__ */ import_react191.default.createElement("p", null, "Sorry, an unexpected error has occurred."), /* @__PURE__ */ import_react191.default.createElement("p", null, /* @__PURE__ */ import_react191.default.createElement("i", null, error.message)));
+    }, /* @__PURE__ */ import_react187.default.createElement("h1", null, "Oops!"), /* @__PURE__ */ import_react187.default.createElement("p", null, "Sorry, an unexpected error has occurred."), /* @__PURE__ */ import_react187.default.createElement("p", null, /* @__PURE__ */ import_react187.default.createElement("i", null, error.message)));
   }
 
   // app/main.tsx
@@ -53273,18 +53235,18 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
   var router = createBrowserRouter([
     {
       path: "/",
-      element: /* @__PURE__ */ import_react192.default.createElement(MainView, null),
+      element: /* @__PURE__ */ import_react188.default.createElement(MainView, null),
       loader: mainLoader,
-      errorElement: /* @__PURE__ */ import_react192.default.createElement(ErrorPage, null),
+      errorElement: /* @__PURE__ */ import_react188.default.createElement(ErrorPage, null),
       children: [
         {
           path: "traces/:traceID",
-          element: /* @__PURE__ */ import_react192.default.createElement(TraceView, null),
+          element: /* @__PURE__ */ import_react188.default.createElement(TraceView, null),
           loader: traceLoader
         },
         {
           path: "telemetry/:id",
-          element: /* @__PURE__ */ import_react192.default.createElement(TelemetryView, null),
+          element: /* @__PURE__ */ import_react188.default.createElement(TelemetryView, null),
           loader: telemetryLoader
         }
       ]
@@ -53294,9 +53256,9 @@ otel-cli exec --service my-service --name "curl google" curl https://google.com
   if (!!container2) {
     const root = (0, import_client.createRoot)(container2);
     root.render(
-      /* @__PURE__ */ import_react192.default.createElement(import_react192.default.StrictMode, null, /* @__PURE__ */ import_react192.default.createElement(ChakraProvider2, {
+      /* @__PURE__ */ import_react188.default.createElement(import_react188.default.StrictMode, null, /* @__PURE__ */ import_react188.default.createElement(ChakraProvider2, {
         theme: theme2
-      }, /* @__PURE__ */ import_react192.default.createElement(RouterProvider, {
+      }, /* @__PURE__ */ import_react188.default.createElement(RouterProvider, {
         router
       })))
     );
